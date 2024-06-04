@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    {% if login_error %}
+        <h1>{{ login_error }}</h1>
+    {% endif %}
+    <input type="text" name="username" value="{{ data.username }}">Имя <br>
+    <input type="password" name="password">Пароль <br>
+    <button type="submit">Вперед</button>
+</form>
+{% endblock %}
