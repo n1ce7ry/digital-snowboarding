@@ -52,8 +52,8 @@ class InterestingFactAboutPlayer(models.Model):
     
 
     class Meta:
-        verbose_name = 'Интересный факт о игроке'
-        verbose_name_plural = 'Интересные факты о игроке'
+        verbose_name = 'Интересный факт об игроке'
+        verbose_name_plural = 'Интересные факты об игроке'
 
 
     def __str__(self) -> str:

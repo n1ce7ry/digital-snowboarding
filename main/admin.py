@@ -1,18 +1,21 @@
 from django.contrib import admin
-from .models import *
 from django.utils.html import format_html
+from .models import *
 
 
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
 
+    def image_id(self, obj):
+        return f'Фото №{obj.id}'
 
-    def image_tag(self, obj):
-        return format_html('<img src="{}" style="max-width:200px; max-height:200px"/>'.format(obj.photo.url))
-        #return format_html(f'<img src="{obj.photo.url}" style="max-width:200px; max-height:200px"/>')
+    def image_preview(self, obj):
+        return format_html(f'<img src="{obj.photo.url}" style="max-width:200px; max-height:200px"/>')
 
+    image_id.short_description = 'ID'
+    image_preview.short_description = 'Превью'
 
-    list_display = ['id', 'image_tag',]
+    list_display = ['image_id', 'image_preview']
 
 
 class InterestingFactAboutPlayerAdmin(admin.ModelAdmin):
