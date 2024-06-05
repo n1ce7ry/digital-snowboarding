@@ -13,7 +13,7 @@ class Souvenirs(models.Model):
         User,
         related_name='favorite_souvenirs',
         verbose_name='Пользователи, добавившие сувенир в избранное',
-        blank=True, null=True,
+        blank=True,
     )
 
 
