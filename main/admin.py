@@ -1,6 +1,7 @@
+from .models import *
+from django import forms
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import *
 
 
 @admin.register(Gallery)
@@ -18,19 +19,33 @@ class GalleryAdmin(admin.ModelAdmin):
     list_display = ['image_id', 'image_preview']
 
 
-class InterestingFactAboutPlayerAdmin(admin.ModelAdmin):
-    pass
-
-
 class FactsInline(admin.StackedInline):
     model = InterestingFactAboutPlayer
-    max_num = 10
+    max_num = 2
     extra = 0
 
 
+@admin.register(Player)
 class PlayerAdmin(admin.ModelAdmin):
     inlines = [FactsInline,]
 
 
-admin.site.register(InterestingFactAboutPlayer, InterestingFactAboutPlayerAdmin)
-admin.site.register(Player, PlayerAdmin)
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        if db_field.name == 'quote':
+            kwargs['widget'] = forms.Textarea(attrs={'rows': 8, 'cols': 45})
+        return super().formfield_for_dbfield(db_field, **kwargs)
+    
+
+@admin.register(InterestingFactAboutPlayer)
+class InterestingFactAboutPlayerAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(GameSchedule)
+class GameScheduleAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Team)
+class TeamAdmin(admin.ModelAdmin):
+    pass

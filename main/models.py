@@ -72,8 +72,34 @@ class Gallery(models.Model):
 
     class Meta:
         verbose_name = 'Фото'
-        verbose_name_plural = 'Галлерея'
+        verbose_name_plural = 'Галерея'
 
 
     def __str__(self) -> str:
         return f'Фотография №{self.id}'
+
+
+class GameSchedule(models.Model):
+    player_one = models.ForeignKey(
+        Player,
+        on_delete=models.CASCADE,
+        verbose_name='Игрок 1',
+        related_name='player_one',
+    )
+    player_two = models.ForeignKey(
+        Player,
+        on_delete=models.CASCADE,
+        verbose_name='Игрок 2',
+        related_name='player_two',
+    )
+    date = models.DateTimeField(verbose_name='Дата и время проведения')
+    location = models.CharField(max_length=255, verbose_name='Место проведения')
+    
+
+    class Meta:
+        verbose_name = 'Матч'
+        verbose_name_plural = 'Расписание игр'
+
+
+    def __str__(self) -> str:
+        return f'{self.player_one} VS {self.player_two} (Дата: {self.date}, Место: {self.location})'
