@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% for souvenir in souvenirs %}
+<div class="">
+    <p>{{ souvenir.name }}</p>
+    <p>{{ souvenir.price }}</p>
+    <img src="{{ souvenir.image.url }}" alt="">
+    <form action="{% url 'cart_add' souvenir.id %}" method="post">
+        {{ cart_souvenir_form }}
+        {% csrf_token %}
+        <button type="submit">
+            Добавить в корзину<span>+</span>
+        </button>
+    </form>
+</div>
+{% endfor %}
+
+
+{% endblock %}

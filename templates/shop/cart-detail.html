@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if cart %}
+                {% for item in cart %}
+                    {% with souvenir=item.souvenir %}
+                        <p>{{ souvenir.name }}</p>
+                        <p>{{ souvenir.price }}</p>
+                    {% endwith %}
+                {% endfor %}
+            {% else %}
+                <p class="empty__cart">
+                    Your cart is empty.
+                </p>
+            {% endif %}
+{% endblock %}

@@ -1,3 +1,46 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
+from .models import Souvenir
+from .cart import Cart
+from .forms import CartAddSouvenirForm
 
-# Create your views here.
+
+def shop(request):
+    souvenirs = Souvenir.objects.all()
+    cart_souvenir_form = CartAddSouvenirForm()
+    return render(
+        request,
+        'shop/shop.html',
+        context={'souvenirs': souvenirs, 'cart_souvenir_form': cart_souvenir_form}
+    )
+
+
+@require_POST
+def cart_add(request, souvenir_id):
+    cart = Cart(request)
+    souvenir = get_object_or_404(Souvenir, id=souvenir_id)
+    form = CartAddSouvenirForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(souvenir=souvenir,
+                 quantity=cd['quantity'],
+                 update_quantity=cd['update'])
+    return redirect('cart_detail')
+
+
+def cart_remove(request, souvenir_id):
+    cart = Cart(request)
+    souvenir = get_object_or_404(Souvenir, id=souvenir_id)
+    cart.remove(souvenir)
+    return redirect('cart_detail')
+
+
+def cart_detail(request):
+    cart = Cart(request)
+    return render(request, 'shop/cart-detail.html', {'cart': cart})
+
+
+def clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect('cart_detail')
