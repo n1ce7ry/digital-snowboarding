@@ -1,11 +1,52 @@
-import re
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, authenticate, logout, login
-from django.core.exceptions import ValidationError
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.decorators import login_required
+from .forms import UpdateUserForm, UserRegistrationForm, UserResetPassword
+from django.contrib.auth import update_session_auth_hash
 
 
 User = get_user_model()
+
+
+@login_required
+def reset_password(request):
+    if request.method == 'POST':
+        form = UserResetPassword(request.POST, instance=request.user)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['new_password'])
+            user.save()
+            update_session_auth_hash(request, user)
+            return redirect('edit-profile')
+        else:
+            return render(
+                request,
+                'identification/reset_password.html',
+                context={'form': form}
+            )
+
+    form = UserResetPassword()
+
+    return render(request, 'identification/reset_password.html', context={'form': form})
+
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = UpdateUserForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('edit-profile')
+        else:
+            return render(
+                request,
+                'identification/edit_profile.html',
+                context={'form': form}
+            )
+
+    form = UpdateUserForm(instance=request.user)
+
+    return render(request, 'identification/edit_profile.html', context={'form': form})
 
 
 def user_login(request):
@@ -19,83 +60,29 @@ def user_login(request):
         else:
             return render(
                 request,
-                'indentification/login.html',
+                'identification/login.html',
                 context={'login_error': 'Введите корректные логин и пароль'}
             )
 
 
-    return render(request, 'indentification/login.html')
+    return render(request, 'identification/login.html')
 
 
+@login_required
 def user_logout(request):
     logout(request)
     return redirect('home_page')
 
 
-def registration(request):
-    if request.method == 'POST':
+def user_registration(request):
+    if request.method == "POST":
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")
+        else:
+            return render(request, 'identification/registration.html', context={'form': form})
 
-        try:
-            cleaned_data = validate_registration_data(request.POST)
+    form = UserRegistrationForm()
 
-        except ValidationError as error:
-            return render(
-                request,
-                'indentification/registration.html',
-                context={'registration_error': error.message, 'data': request.POST}
-            )
-        
-        User.objects.create(
-            username=cleaned_data['username'],
-            password=make_password(cleaned_data['password']),
-            phone=cleaned_data['phone'],
-            email=cleaned_data['email'],
-        )
-        return redirect('login')
-
-
-    return render(request, 'indentification/registration.html')
-
-
-def validate_registration_data(registration_data):
-    username = registration_data.get('username')
-    password = registration_data.get('password'),
-    repeated_password = registration_data.get('repeated_password'),
-    phone = registration_data.get('phone')
-    email = registration_data.get('email')
-
-    validated_password = validate_password(
-        password,
-        repeated_password,
-    )
-    validated_phone = validate_phone(phone)
-    validated_email = validate_email(email)
-
-    return {
-        'username': username,
-        'password': validated_password,
-        'phone': validated_phone,
-        'email': validated_email,
-    }
-
-
-def validate_password(password, repeated_password):
-    if password == repeated_password:
-        return password
-    
-    raise ValidationError('Пароли не совпадают')
-
-
-def validate_phone(phone):
-    if len(phone) == 11:
-        return phone
-    
-    raise ValidationError('Введите номер телефона в формате 89XXXXXXXX')
-
-
-def validate_email(email):
-    pattern = r'([A-Za-z0-9_.-]{1,})@([A-Za-z0-9_.-]{1,})\.([A-Za-z]{2,8})'
-    if re.match(pattern, email):
-        return email
-    
-    raise ValidationError('Введите корректный email')
+    return render(request, 'identification/registration.html', context={'form': form})
