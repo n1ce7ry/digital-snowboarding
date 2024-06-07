@@ -31,12 +31,17 @@ def reset_password(request):
 
 
 @login_required
+def profile(request):
+    return render(request, 'identification/profile.html')
+
+
+@login_required
 def edit_profile(request):
     if request.method == 'POST':
         form = UpdateUserForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('edit-profile')
+            return redirect('profile')
         else:
             return render(
                 request,
@@ -49,6 +54,12 @@ def edit_profile(request):
     return render(request, 'identification/edit_profile.html', context={'form': form})
 
 
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('home_page')
+
+
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -56,7 +67,7 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user and user.is_active:
             login(request, user)
-            return redirect('home_page')
+            return redirect('profile')
         else:
             return render(
                 request,
@@ -68,12 +79,6 @@ def user_login(request):
     return render(request, 'identification/login.html')
 
 
-@login_required
-def user_logout(request):
-    logout(request)
-    return redirect('home_page')
-
-
 def user_registration(request):
     if request.method == "POST":
         form = UserRegistrationForm(request.POST)
@@ -81,7 +86,7 @@ def user_registration(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             user.save()
-            return redirect("login")
+            return redirect('login')
         else:
             return render(request, 'identification/registration.html', context={'form': form})
 

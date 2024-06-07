@@ -46,9 +46,8 @@
                             <img src="{% static 'images/arrow-bottom.png' %}" alt="Стрелка">
                         </div>
                         <div id="myDropdown" class="dropdown-content">
-                            <a href="personal-page.html">Профиль</a>
+                            <a href="{% url 'profile' %}">Профиль</a>
                             <a href="personpage-ticket.html">Мои билеты</a>
-                            <a href="edit-page.html">Изменить профиль</a>
                             <a href="{% url 'logout' %}">Выйти</a>
                         </div>
                     </div>

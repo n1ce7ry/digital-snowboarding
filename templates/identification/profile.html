@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+
+<main class="main">
+    <section class="personal-page">
+        <h1 class="title">ПРОФИЛЬ</h1>
+        <div class="personal-page__container">
+            <div class="personal-page__content">
+                <img class="profile-page__avatar" src="{% static 'images/profile-icon.png' %}" alt="Пользователь">
+                <div class="personal-user__container">
+                    <p class="personal-user__name">{{ user.username }}</p>
+                    <p class="personal-user__info">{{ user.email }}</p>
+                    <p class="personal-user__info">{{ user.phone }}</p>
+                </div>
+                <div class="profile-btn__container">
+                    <a class="profile__btn hvr-sweep-to-right" href="edit-page.html">Изменить профиль</a>
+                    <a class="profile__btn hvr-sweep-to-right" href="editpassword-page.html">Изменить пароль</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
