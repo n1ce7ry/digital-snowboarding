@@ -14,10 +14,8 @@ class Team(models.Model):
     )
     interesting_fact = models.CharField(max_length=500, verbose_name='Интересный факт о команде')
 
-
     def __str__(self) -> str:
         return self.name
-    
 
     class Meta:
         verbose_name = 'Команда'
@@ -36,11 +34,9 @@ class Player(models.Model):
     label_photo = models.ImageField(upload_to='player_label_photos/', verbose_name='Дополнительное фото игрока')
     team = models.ForeignKey(Team, on_delete=models.CASCADE, verbose_name='Команда игрока')
     
-
     class Meta:
         verbose_name = 'Игрок'
         verbose_name_plural = 'Игроки'
-
 
     def __str__(self) -> str:
         return self.full_name
@@ -50,11 +46,9 @@ class InterestingFactAboutPlayer(models.Model):
     fact = models.CharField(max_length=255, verbose_name='Интересный факт')
     player = models.ForeignKey(Player, on_delete=models.CASCADE, verbose_name='Игрок')
     
-
     class Meta:
         verbose_name = 'Интересный факт об игроке'
         verbose_name_plural = 'Интересные факты об игроке'
-
 
     def __str__(self) -> str:
         return self.fact
@@ -69,11 +63,9 @@ class Gallery(models.Model):
     )
     photo = models.ImageField(upload_to='gallery/', verbose_name='Фото')
     
-
     class Meta:
         verbose_name = 'Фото'
         verbose_name_plural = 'Галерея'
-
 
     def __str__(self) -> str:
         return f'Фотография №{self.id}'
@@ -94,12 +86,10 @@ class GameSchedule(models.Model):
     )
     date = models.DateTimeField(verbose_name='Дата и время проведения')
     location = models.CharField(max_length=255, verbose_name='Место проведения')
-    
 
     class Meta:
         verbose_name = 'Матч'
         verbose_name_plural = 'Расписание игр'
-
 
     def __str__(self) -> str:
         return f'{self.player_one} VS {self.player_two} (Дата: {self.date}, Место: {self.location})'

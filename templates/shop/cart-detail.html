@@ -13,4 +13,17 @@
                     Your cart is empty.
                 </p>
             {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                {% for field in form %}
+                <div>
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                </div>
+                {% endfor %}
+                <button type="submit">Оформить заказ</button>
+            </form>
+
 {% endblock %}
