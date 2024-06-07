@@ -1,10 +1,17 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from .models import *
 
 
 @admin.register(Souvenir)
 class SouvenirAdmin(admin.ModelAdmin):
-    pass
+
+    readonly_fields = ['preview']
+
+    def preview(self, obj):
+        return mark_safe(f'<img src="{obj.image.url}" style="max-width:200px; max-height:200px">')
+
+    preview.short_description = 'Превью'
 
 
 @admin.register(SouvenirType)

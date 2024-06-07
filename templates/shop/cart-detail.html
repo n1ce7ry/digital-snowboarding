@@ -1,29 +1,68 @@
 {% extends 'base.html' %}
 
-{% block body %}
-{% if cart %}
-                {% for item in cart %}
-                    {% with souvenir=item.souvenir %}
-                        <p>{{ souvenir.name }}</p>
-                        <p>{{ souvenir.price }}</p>
-                    {% endwith %}
-                {% endfor %}
-            {% else %}
-                <p class="empty__cart">
-                    Your cart is empty.
-                </p>
-            {% endif %}
+{% load static %}
 
-            <form method="POST">
-                {% csrf_token %}
-                
-                {% for field in form %}
-                <div>
-                    {{ field.errors }}
-                    {{ field.label_tag }} {{ field }}
+{% block title %}
+{% endblock %}
+
+{% block body %}
+
+
+<main class="main">
+    <section class="backet-page">
+        <h1 class="title">ВАШИ ЗАКАЗЫ</h1>
+        <div class="backet-page__container">
+            {% if cart %}
+            <table class="backet-page__table">
+                <thead class="table__head">
+                    <tr class="table__title">
+                        <th class="table-title__item">Товар</th>
+                        <th class="table-title__item">Количество</th>
+                        <th class="table-title__item">Цена</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart %}
+                    {% with souvenir=item.souvenir %}
+                    <tr class="table-content">
+                        <td class="table-content__photo">
+                            <img src="{{ souvenir.image.url }}" alt="{{ souvenir.name }}" class="table-content__img">
+                            <p class="table-tovar__name">{{ souvenir.name }}</p>
+                        </td>
+                        <td class="table-content__item">{{ item.quantity }} шт</td>
+                        <td class="table-content__item">{{ souvenir.price }} ₽</td>
+                        <td class="table-content__item">
+                            <a href="{% url 'cart_remove' souvenir.id %}"
+                                class="table__delet hvr-sweep-to-right">Удалить</a>
+                        </td>
+                    </tr>
+                    {% endwith %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <form method="POST" class="backet__total">
+                <div class="backet-total__price">
+                    <p class="total">ИТОГО</p>
+                    <p class="total">{{ cart.get_total_price }} ₽</p>
                 </div>
+
+                {% csrf_token %}
+                {% for field in form %}
+                    <label class="backet-total__label" for="{{ field.auto_id }}">{{ field.label }}</label><br>
+                    {{ field }}<br>
+                    {{ field.errors }}
                 {% endfor %}
-                <button type="submit">Оформить заказ</button>
+
+                <button type="submit" class="backet-total__btn">Оформить заказ</button>
             </form>
+
+            {% else %}
+            <p class="empty__cart">
+                Your cart is empty.
+            </p>
+            {% endif %}
+        </div>
+    </section>
+</main>
 
 {% endblock %}
