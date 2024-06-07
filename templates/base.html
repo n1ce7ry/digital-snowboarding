@@ -55,8 +55,8 @@
                 </div>
                 {% else %}
                 <div class="buttons__container">
-                    <a class="btn hvr-sweep-to-right" href="login-page.html">Войти</a>
-                    <a class="btn hvr-sweep-to-right" href="registration-page.html">Регистрация</a>
+                    <a class="btn hvr-sweep-to-right" href="{% url 'login' %}">Войти</a>
+                    <a class="btn hvr-sweep-to-right" href="{% url 'registration' %}">Регистрация</a>
                 </div>
                 {% endif %}
             </div>
@@ -83,7 +83,7 @@
                 <div class="footer__menu">
                     <ul class="footer-menu__items">
                         <li class="footer-menu__title">
-                            Трунир
+                            Турнир
                         </li>
                         <li class="footer-menu__item">
                             <a href="" class="footer-menu__link hvr-underline-from-left">Расписание</a>

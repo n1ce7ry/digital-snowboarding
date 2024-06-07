@@ -78,7 +78,9 @@ def user_registration(request):
     if request.method == "POST":
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
             return redirect("login")
         else:
             return render(request, 'identification/registration.html', context={'form': form})

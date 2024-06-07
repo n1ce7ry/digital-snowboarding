@@ -1,19 +1,31 @@
 {% extends 'base.html' %}
 
-{% block body %}
-<form method="POST">
-    {% csrf_token %}
-    
-    {% if registration_error %}
-        <h1>{{ registrtaion_error }}</h1>
-    {% endif %}
+{% load static %}
 
-    {% for field in form %}
-    <div>
-        {{ field.errors }}
-        {{ field.label_tag }} {{ field }}
-    </div>
-    {% endfor %}
-    <button type="submit">Вперед</button>
-</form>
+{% block title %}
+{% endblock %}
+
+{% block body %}
+
+<main class="main">
+    <section class="login">
+        <div class="registr__container">
+            <img src="{% static 'images/registration.png' %}" alt="мужчина" class="registr__img">
+            <form class="form__refistr" method="post">
+                <h2 class="login__title">РЕГИСТРАЦИЯ</h2>
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field.errors }}
+                    {{ field }}
+                {% endfor %}
+                <p class="form__text">Уже есть аккаунт? <a href="{% url 'login' %}"
+                        class="form__link hvr-underline-from-left">Войдите</a></p>
+
+                <button class="btn__form" type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+
+    </section>
+</main>
+
 {% endblock %}

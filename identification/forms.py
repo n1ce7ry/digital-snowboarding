@@ -10,6 +10,17 @@ class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'password', 'email', 'phone']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form__input user__registr', 'placeholder': 'Придумайте логин'}),
+            'password': forms.PasswordInput(attrs={'class': 'form__input lock__registr', 'placeholder': 'Придумайте пароль'}),
+            'email': forms.EmailInput(attrs={'class': 'form__input email__refistr', 'pattern': '([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})', 'placeholder': 'Введите E-mail'}),
+            'phone': forms.TextInput(attrs={'class': 'form__input phone__registr', 'minlength':'11', 'pattern': '\8[0-9]+', 'placeholder': 'Введите телефон начиная с 8'}),
+        }
+        error_messages = {
+            'email': {
+                'unique': ("E-mail уже занят"),
+            },
+        }
 
 
 class UpdateUserForm(forms.ModelForm):

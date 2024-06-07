@@ -1,13 +1,35 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
 {% block body %}
-<form method="POST">
-    {% csrf_token %}
-    {% if login_error %}
-        <h1>{{ login_error }}</h1>
-    {% endif %}
-    <input type="text" name="username" value="{{ data.username }}">Имя <br>
-    <input type="password" name="password">Пароль <br>
-    <button type="submit">Вперед</button>
-</form>
+
+<main class="main">
+    <section class="login">
+        <div class="login__container">
+            <img src="{% static 'images/login.png' %}" alt="мужчина" class="login__img">
+            <form class="form" method="post">
+                <h2 class="login__title">ВХОД</h2>
+                {% if login_error %}
+                    <p>{{ login_error }}</p>
+                {% endif %}
+                {% csrf_token %}
+                <input class="form__input user" type="text" value="{{ data.username }}" name="username" id="login" placeholder="Введите логин"
+                    required> <br>
+                <input class="form__input lock" type="password" name="password" id="pass" placeholder="Введите пароль"
+                    required><br>
+
+                <p class="form__text">Еще нет аккаунта? <a href="{% url 'registration' %}"
+                        class="form__link hvr-underline-from-left">Зарегистрируйтесь</a></p>
+
+                <button class="btn__form" type="submit">Войти</button>
+            </form>
+        </div>
+
+    </section>
+</main>
+
 {% endblock %}
