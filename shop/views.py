@@ -1,17 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
-from .models import Souvenir, OrderItem
+from .models import Souvenir, SouvenirType, OrderItem
 from .cart import Cart
 from .forms import CartAddSouvenirForm, CheckoutForm
 
 
 def shop(request):
     souvenirs = Souvenir.objects.all()
+    souvenirs_types = SouvenirType.objects.all()
     cart_souvenir_form = CartAddSouvenirForm()
     return render(
         request,
         'shop/shop.html',
-        context={'souvenirs': souvenirs, 'cart_souvenir_form': cart_souvenir_form}
+        context={'souvenirs': souvenirs,
+                 'cart_souvenir_form': cart_souvenir_form,
+                 'souvenirs_types': souvenirs_types,}
     )
 
 
@@ -43,7 +46,9 @@ def cart_detail(request):
         if form.is_valid():
             order = form.save(commit=False)
             order.total_price = cart.get_total_price()
-            order.user = request.user
+            if request.user.is_authenticated:
+                order.user = request.user
+
             order.save()
             for item in cart:
                 OrderItem.objects.create(order=order,
@@ -55,7 +60,7 @@ def cart_detail(request):
             return render(request, 'shop/created.html',
                           {'order': order})
 
-    form = CheckoutForm(instance=request.user)
+    form = CheckoutForm(instance=request.user if request.user.is_authenticated else None)
 
     return render(
         request,

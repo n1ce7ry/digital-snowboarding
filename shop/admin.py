@@ -3,7 +3,12 @@ from .models import *
 
 
 @admin.register(Souvenir)
-class SouvenirsAdmin(admin.ModelAdmin):
+class SouvenirAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(SouvenirType)
+class SouvenirTypeAdmin(admin.ModelAdmin):
     pass
 
 

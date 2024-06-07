@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Чемпионат по фиджитал играм{% endblock %}
+
+{% block header_class %}header__main{% endblock %}
+
+{% block extraheader %}
+<div class="header__content">
+    <img class="header-content__img" src="{% static 'images/snowboarder.png' %}" alt="Сноубордист">
+    <div class="header-content__texts">
+        <h1 class="title">ЧЕМПИОНАТ ПО ФИДЖИТАЛ <br> СНОУБОРДИНГУ</h1>
+        <p class="header-content__text">Позволь будущему начаться с тебя. <br>Расширяй границы возможного с
+            <br>участниками чемпионата.
+        </p>
+        <a href="#digital"><img src="{% static 'images/button.svg' %}" alt="Кнопка" class="header-content__button"></a>
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}
+
+        <main class="main">
+            <section class="digital-competition" id="digital">
+                <img class="competition__decor1" src="{% static 'images/decor1.svg' %}" alt="декор">
+                <img class="competition__decor2" src="{% static 'images/decor2.svg' %}" alt="декор">
+                <div class="digital-competition__container">
+                    <h2 class="title2">ФИДЖИТАЛ СОРЕВНОВАНИЯ</h2>
+                    <p class="digital-competition-text">
+                        Это новый турнир по фиджитал-сноубордингу, который пройдет <br>
+                        в фервале и марте 2024 года в Санкт-Петербурге. Участниками <br>
+                        станут 11 городов России, команды из которых прошли отбор.
+                    </p>
+                </div>
+            </section>
+
+            <section class="step">
+                <div class="step__container">
+                    <img src="{% static 'images/dots.png' %}" alt="декор" class="step__decor">
+                    <h2 class="title2">STEP</h2>
+                    <p class="step__text">
+                        Фиджитал соревнование будет проходить <br>
+                        в виртуальном мире STEP.
+                    </p>
+                    <p class="step__info">
+                        Докажите, что вы действительно король или королева гор: примите участие в <br> уникальных
+                        зрелищных испытаниях и <br>продемонстрируйте свои навыки. <br> Попробуйте свои силы в особых
+                        испытаниях
+                    </p>
+                </div>
+            </section>
+
+            <section class="translation">
+                <div class="translation__container">
+                    <h2 class="title2">СМОТРИТЕ В ПРЯМОМ ЭФИРЕ</h2>
+                    <iframe width="1250" height="700"
+                        src="https://www.youtube.com/embed/QzAq_9XqWGM?si=JQd1poRRzqwnlpvi" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="tickets">
+                <div class="tickets__container">
+                    <div class="tickets__contet">
+                        <h2 class="title2 title__tickets">БИЛЕТЫ УЖЕ В ПРОДАЖЕ</h2>
+                        <p class="tickets__text">
+                            Не упусти возможность стать частью <br>
+                            этого незабываемого спортивного события! <br>
+                            Купите билеты прямо сейчас и готовьтесь к <br>безумному адреналину!
+                        </p>
+                        <a class="btn__tickets hvr-sweep-to-right" href="tickets-page.html">Купить билеты</a>
+                    </div>
+                    <img src="{% static 'images/tickets-men.png' %}" alt="Мужчина" class="tickets__img">
+                </div>
+            </section>
+
+            <section class="social-media">
+                <img src="{% static 'images/social.svg' %}" alt="декор" class="social__decor1">
+                <img src="{% static 'images/decor1.svg' %}" alt="декор" class="social__decor2">
+                <div class="social-media__container">
+                    <h2 class="title2">СЛЕДИТЕ ЗА ВСЕМИ НОВОСТЯМИ В НАШИХ <br>
+                        СОЦИАЛЬНЫХ СЕТЯХ</h2>
+                    <div class="social-media__elements">
+                        <a href="#" class="social-media__item">
+                            <img src="{% static 'images/images/vk.png' %}" alt="" class="social-media__icon">
+                        </a>
+                        <a href="#" class="social-media__item">
+                            <img src="{% static 'images/telegram.png' %}" alt="телеграм" class="social-media__icon">
+                        </a>
+                        <a href="#" class="social-media__item">
+                            <img src="{% static 'images/youtube.png' %}" alt="ютуб" class="social-media__icon">
+                        </a>
+                        <a href="#" class="social-media__item">
+                            <img src="{% static 'images/twitch.png' %}" alt="твич" class="social-media__icon">
+                        </a>
+                        <a href="#" class="social-media__item">
+                            <img src="{% static 'images/instagram.png' %}" alt="инстаграм" class="social-media__icon">
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+{% endblock %}

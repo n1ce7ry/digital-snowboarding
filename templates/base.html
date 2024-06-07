@@ -1,14 +1,171 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} {% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 </head>
+
 <body>
-    {% block body %}
+    <div class="wrapper">
+        <header class="header {% block header_class %}{% endblock %}">
+            <div class="header__container">
+                <a href="{% url 'home_page' %}"><img src="{% static 'images/logotype.svg' %}" alt="логотип"
+                        class="logotype"></a>
+                <nav class="nav">
+                    <ul class="menu">
+                        <li class="menu__item">
+                            <a href="teams-page.html" class="menu__link hvr-underline-from-left">Команды</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="{% url 'shop' %}" class="menu__link hvr-underline-from-left">Магазин</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="tournament-page.html" class="menu__link hvr-underline-from-left">Турнирная
+                                таблица</a>
+                        </li>
+                        <li class="menu__item pad">
+                            <a href="tickets-page.html" class="menu__link hvr-underline-from-left">Билеты</a>
+                        </li>
+                    </ul>
+                </nav>
+                {% if user.is_authenticated %}
+                <div class="buttons-personal__container">
+                    <a href="{% url 'cart_detail' %}" class="personal__backet"><img src="{% static 'images/backet.png' %}" alt="Корзина"
+                            class="backet"></a>
+                    <a href="favorite-page.html" class="personal__favorite"><img src="{% static 'images/favorite.png' %}" alt="Избранное"
+                            class="backet"></a>
+                    <div class="dropdown">
+                        <div onclick="myFunction()" class="dropbtn">
+                            <p class="personal__login">{{ user.username }}</p>
+                            <a href="#" class="personal__user"> <img src="{% static 'images/user-personal.png' %}" alt="user"> </a>
+                            <img src="{% static 'images/arrow-bottom.png' %}" alt="Стрелка">
+                        </div>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="personal-page.html">Профиль</a>
+                            <a href="personpage-ticket.html">Мои билеты</a>
+                            <a href="edit-page.html">Изменить профиль</a>
+                            <a href="{% url 'logout' %}">Выйти</a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="buttons__container">
+                    <a class="btn hvr-sweep-to-right" href="login-page.html">Войти</a>
+                    <a class="btn hvr-sweep-to-right" href="registration-page.html">Регистрация</a>
+                </div>
+                {% endif %}
+            </div>
+            {% block extraheader %}
+            {% endblock %}
+        </header>
+
+        {% block body %}
+        {% endblock %}
+
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="news">
+                    <h3 class="title__footer">Подпишитесь на нашу рассылку</h3>
+                    <p class="footer__text">
+                        Будьте в курсе всех новостей и будущих <br>
+                        мероприятий!
+                    </p>
+                    <div class="footer__buttons">
+                        <input class="footer__input" type="text" name="email" id="email" placeholder="Введите email">
+                        <button class="btn__footer" type="submit">Подписаться</button>
+                    </div>
+                </div>
+                <div class="footer__menu">
+                    <ul class="footer-menu__items">
+                        <li class="footer-menu__title">
+                            Трунир
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Расписание</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="tournament-page.html" class="footer-menu__link hvr-underline-from-left">Турнирная
+                                таблица</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="tickets-page.html" class="footer-menu__link hvr-underline-from-left">Билеты</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="teams-page.html" class="footer-menu__link hvr-underline-from-left">Команды</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-menu__items">
+                        <li class="footer-menu__title">
+                            Информация
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Место провидения</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Каталог</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Политика </a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Пресс-конференция</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-menu__items otstup">
+                        <li class="footer-menu__title">
+                            Контент
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Интервью</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Трансляции</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Новости</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Прогнозы</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-logo__container">
+                <img class="footer__logo" src="{% static 'images/logotype.svg' %}" alt="логотип">
+                <div class="footer__social">
+                    <p class="footer-menu__title">Социальные сети</p>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="{% static 'images/fvk.png' %}" alt="вк">
+                    </a>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="{% static 'images/ftelegram.png' %}" alt="телеграм">
+                    </a>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="{% static 'images/fyoutube.png' %}" alt="ютуб">
+                    </a>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="{% static 'images/finsta.png' %}" alt="инстаграм">
+                    </a>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="{% static 'images/ftwitch.png' %}" alt="твич">
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    {% if user.is_authenticated %}
+        <script src="{% static 'js/drop.js' %}"></script>
+    {% endif %}
+
+    {% block js %}
     {% endblock %}
+
 </body>
+
 </html>

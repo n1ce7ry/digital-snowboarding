@@ -1,21 +1,51 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
 {% block body %}
 
-{% for souvenir in souvenirs %}
-<div class="">
-    <p>{{ souvenir.name }}</p>
-    <p>{{ souvenir.price }}</p>
-    <img src="{{ souvenir.image.url }}" alt="">
-    <form action="{% url 'cart_add' souvenir.id %}" method="post">
-        {{ cart_souvenir_form }}
-        {% csrf_token %}
-        <button type="submit">
-            Добавить в корзину<span>+</span>
-        </button>
-    </form>
-</div>
-{% endfor %}
+<main class="main">
+    <section class="shop-page">
+        <h1 class="title">КАТАЛОГ СУВЕНИРОВ</h1>
+        <form method="get" class="shop-filter__container">
+            <a data-filter="all" class="shop__filter filter__param">Все товары</a>
+            {% for souvenir_type in souvenirs_types%}
+                <a data-filter="{{ souvenir_type.name }}" class="filter__param shop__filter">{{ souvenir_type.name }}</a>
+            {% endfor %}
+        </form>
+        <div class="shop__container">
+            {% for souvenir in souvenirs %}
+            <div class="shop__element {{ souvenir.type.name }}">
+                <div class="shop-img__container">
+                    <img src="{{ souvenir.image.url }}" alt="{{ souvenir.name }}" class="shop img">
+                    <form action="" class="shop-favorite__form" method="post">
+                        <button class="favorite__btn" type="submit">
+                            <img src="{% static 'images/favorite.png' %}" alt="Избранное" class="shop__heart">
+                        </button>
+                    </form>
+                </div>
+                <div class="shop-content__container">
+                    <p class="shop-text">{{ souvenir.name }}</p>
+                    <div class="shop-price__container">
+                        <p class="shop__price">{{ souvenir.price }} ₽</p>
+                        <form action="{% url 'cart_add' souvenir.id %}" class="shop-add__form" method="POST">
+                            {{ cart_souvenir_form }}
+                            {% csrf_token %}
+                            <button class="add__btn" type="submit">+</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
 
+{% endblock %}
 
+{% block js %}
+<script src="{% static 'js/filter.js' %}"></script>
 {% endblock %}

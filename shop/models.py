@@ -5,10 +5,22 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class SouvenirType(models.Model):
+    name = models.CharField(max_length=255, verbose_name='Тип сувенира')
+
+    class Meta:
+        verbose_name = 'Тип сувенира'
+        verbose_name_plural = 'Типы сувениров'
+
+    def __str__(self) -> str:
+        return self.name
+
+
 class Souvenir(models.Model):
     name = models.CharField(max_length=255, verbose_name='Название сувенира')
     image = models.ImageField(upload_to='souvenirs/', verbose_name='Фотография сувенира')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена сувенира')
+    type = models.ForeignKey(SouvenirType, on_delete=models.PROTECT, verbose_name='Тип сувенира')
     users = models.ManyToManyField(
         User,
         related_name='favorite_souvenirs',
@@ -25,7 +37,7 @@ class Souvenir(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Клиент')
+    user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Клиент', null=True, blank=True)
     first_name = models.CharField(max_length=255, verbose_name='Имя покупателя')
     email = models.EmailField(verbose_name='Электронная почта')
     phone = models.CharField(max_length=11, verbose_name='Номер телефона')

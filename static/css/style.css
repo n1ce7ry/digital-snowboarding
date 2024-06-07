@@ -1,0 +1,1771 @@
+/* подключение шрифтов */
+@font-face {
+    font-family: 'NeueMachina-Bold';
+    /* заголовки */
+    src: url('../fonts/NeueMachina-Bold.woff2');
+}
+
+@font-face {
+    font-family: 'NeueMachina-Regular';
+    src: url('../fonts/NeueMachina-Regular.woff2');
+}
+
+@font-face {
+    font-family: 'NeueMachina-Light';
+    /* оснонвной текст */
+    src: url('../fonts/NeueMachina-Light.woff2');
+}
+
+@font-face {
+    font-family: 'NeueMachina-Medium';
+    /* подзаголовки */
+    src: url('../fonts/NeueMachina-Medium.woff2');
+}
+
+/* глобальные стили */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+section {
+    padding: 2% 10%;
+}
+
+html,
+body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex: 0 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.title {
+    font-size: 46px;
+    font-family: 'NeueMachina-Bold', sans-serif;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.title2 {
+    font-size: 44px;
+    color: #fff;
+    font-family: 'NeueMachina-Bold';
+    line-height: 1.5;
+}
+
+body {
+    font-family: 'NeueMachina-Light';
+    color: #fff;
+    background-color: #070707;
+}
+
+/* шапка */
+.header__main {
+    background-image: url(../images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header__container {
+    padding: 2% 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu__link {
+    color: #fff;
+    font-size: 22px;
+}
+
+/* Underline From Left */
+.hvr-underline-from-left {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+}
+
+.hvr-underline-from-left:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: #EB623B;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-left:hover:before,
+.hvr-underline-from-left:focus:before,
+.hvr-underline-from-left:active:before {
+    right: 0;
+}
+
+.menu__item {
+    margin-right: 50px;
+}
+
+.pad {
+    margin: 0;
+}
+
+.btn {
+    color: #fff;
+    font-size: 22px;
+    border: 2px solid #EB623B;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+/* Sweep To Right */
+.hvr-sweep-to-right {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    border-radius: 10px;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.hvr-sweep-to-right:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background: #EB623B;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-sweep-to-right:hover,
+.hvr-sweep-to-right:focus,
+.hvr-sweep-to-right:active {
+    color: white;
+}
+
+.hvr-sweep-to-right:hover:before,
+.hvr-sweep-to-right:focus:before,
+.hvr-sweep-to-right:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    height: 1080px;
+}
+
+.header-content__texts {
+    text-align: center;
+    margin-top: 200px;
+    margin-right: 100px;
+    margin-left: 20px;
+}
+
+.header-content__img {
+    width: 1000px;
+    height: 1000px;
+}
+
+.header-content__text {
+    font-size: 36px;
+    text-align-last: left;
+    line-height: 1.5;
+    font-family: 'NeueMachina-light';
+    margin-bottom: 100px;
+}
+
+/* секция соревнования */
+.digital-competition {
+    height: 700px;
+    position: relative;
+    align-items: center;
+    background-image: url(../images/competition.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.digital-competition__container {
+    margin: 200px 0 0 150px;
+}
+
+.digital-competition-text {
+    margin-top: 37px;
+    font-size: 32px;
+    line-height: 1.5;
+}
+
+.competition__decor1 {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+}
+
+.competition__decor2 {
+    position: absolute;
+    right: 0;
+    top: 60px;
+}
+
+/* секция информация про степ */
+.step {
+    padding: 0;
+    height: 1080px;
+    background-image: url(../images/step.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.step__container {
+    padding: 15% 3% 15% 5%;
+    float: right;
+    width: 1000px;
+    height: 1080px;
+    background-color: #070707b8;
+}
+
+.step__text {
+    font-size: 32px;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.step__info {
+    font-size: 32px;
+    margin-top: 56px;
+    line-height: 1.5;
+}
+
+.step__decor {
+    position: absolute;
+    right: 100px;
+    top: 100px;
+}
+
+/* секция трансляция */
+.translation {
+    height: 1080px;
+    background-image: url(../images/translation.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.translation__container {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.translation__container iframe {
+    margin-top: 30px;
+}
+
+/* секция билеты */
+.tickets {
+    height: 940px;
+    padding: 2% 0 0 5%;
+    background-image: url(../images/tickets.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.tickets__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title__tickets {
+    color: #EB623B;
+    margin-top: 230px;
+}
+
+.tickets__text {
+    font-size: 32px;
+    line-height: 1.5;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.tickets__img {
+    width: 1100px;
+}
+
+.btn__tickets {
+    color: #EB623B;
+    border: 2px solid #EB623B;
+    border-radius: 10px;
+    padding: 10px 50px;
+    font-size: 32px;
+}
+
+/* секция соцсети */
+.social-media {
+    padding: 5% 10%;
+    text-align: center;
+    position: relative;
+}
+
+.social-media__icon {
+    transition: all 0.5s;
+    border-radius: 50%;
+}
+
+.social-media__icon:hover {
+    box-shadow: 0 5px 20px #EB623B;
+    border-radius: 50%;
+    transform: translateY(-15px);
+}
+
+.social-media__elements {
+    margin-top: 38px;
+}
+
+.social-media__item {
+    margin-right: 40px;
+}
+
+.social__decor1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.social__decor2 {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+}
+
+/*  футер */
+footer {
+    padding: 0% 8%;
+}
+
+.footer__container {
+    border-top: 1px solid #EB623B;
+    padding-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.footer__menu {
+    display: flex;
+}
+
+.title__footer {
+    color: #EB623B;
+    font-family: 'NeueMachina-Medium';
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.footer__text {
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.footer__input {
+    background-color: #D9D9D9;
+    color: #070707;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px 50px 10px 20px;
+    margin-right: 20px;
+    outline: none;
+}
+
+.footer__input:focus {
+    border: 1px solid #EB623B;
+}
+
+.btn__footer {
+    cursor: pointer;
+    color: #fff;
+    background-color: #EB623B;
+    border: 1px solid #EB623B;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: all 0.5s;
+}
+
+.btn__footer:hover {
+    background-color: transparent;
+    border: 1px solid #EB623B;
+}
+
+.news,
+.footer__menu {
+    margin-bottom: 50px;
+}
+
+.footer-menu__title {
+    color: #EB623B;
+    font-size: 25px;
+    font-family: 'NeueMachina-Medium';
+    margin-bottom: 20px;
+}
+
+.footer-menu__link {
+    font-size: 20px;
+    color: #fff;
+}
+
+.footer-menu__items {
+    margin-right: 100px;
+}
+
+.otstup {
+    margin: 0;
+}
+
+.footer-menu__item {
+    margin-bottom: 20px;
+}
+
+.footer-logo__container {
+    display: flex;
+    padding-bottom: 3%;
+}
+
+.footer-social__icons {
+    margin-right: 20px;
+}
+
+.footer__logo {
+    margin-right: 41%;
+}
+
+/* СТРАНИЦА КОМАНДЫ */
+.teams {
+    position: relative;
+}
+
+.team__decor1 {
+    position: absolute;
+    right: 0;
+    top: -140px;
+}
+
+.team__decor2 {
+    position: absolute;
+    left: -40px;
+    bottom: 0;
+}
+
+.teams__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team__link {
+    font-family: 'NeueMachina-Bold';
+    font-size: 28px;
+    color: #fff;
+}
+
+.team__card {
+    margin-bottom: 150px;
+    margin-top: 70px;
+}
+
+.team-card__logo {
+    border: 1px solid #EB623B;
+    border-radius: 20px;
+    padding: 70px 51px;
+    cursor: pointer;
+    margin-bottom: 60px;
+}
+
+.flacco {
+    padding: 20px 55px;
+}
+
+.taem-lovekaza__logo {
+    height: 230px;
+}
+
+.lovekazan {
+    padding: 40px 80px;
+}
+
+/* Grow Shadow */
+.hvr-grow-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.hvr-grow-shadow:hover,
+.hvr-grow-shadow:focus,
+.hvr-grow-shadow:active {
+    box-shadow: 0 10px 20px -10px #EB623B;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/* СТРАНИЦА ОДНОЙ КОМАНДЫ */
+.team {
+    background-image: url(../images/snowboarding.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.team__container {
+    text-align: center;
+}
+
+.team-members__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.team__photo {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #EB623B;
+}
+
+.team__fio {
+    font-size: 22px;
+    font-family: 'NeueMachina-Medium';
+}
+
+/* секция расписание */
+.timetable {
+    margin-top: 100px;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.timetable__decor1 {
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+}
+
+.timetable__decor2 {
+    position: absolute;
+    right: 0;
+    top: -100px;
+}
+
+.timetable__title {
+    color: #EB623B;
+    font-family: 'NeueMachina-Medium';
+    font-size: 46px;
+    margin-bottom: 20px;
+}
+
+.timetable__name {
+    font-size: 28px;
+    margin-bottom: 55px;
+}
+
+.timetable__container {
+    border-top: 1px solid #EB623B;
+    padding: 30px 0;
+}
+
+.timerible__elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.timetable__logo {
+    width: 280px;
+}
+
+.timetable__logo2 {
+    width: 240px;
+}
+
+.protiv {
+    font-family: 'NeueMachina-Bold';
+    font-size: 42px;
+}
+
+.time__data {
+    color: #EB623B;
+    font-family: 'NeueMachina-Medium';
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.time__time,
+.time__place {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* секция состав */
+.team-structure {
+    background-image: url(../images/newkids_back.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 100px;
+}
+
+.team-info__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    align-items: center;
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.team-info__title {
+    font-family: 'NeueMachina-Medium';
+    font-size: 42px;
+    margin-bottom: 60px;
+}
+
+.team-info__text {
+    font-family: 'NeueMachina-Medium';
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.regular {
+    font-family: 'NeueMachina-Light';
+    margin-left: 20px;
+}
+
+.team__facts {
+    background-color: #1F1F1F;
+    height: 305px;
+    width: 640px;
+    padding: 40px 50px;
+}
+
+.facts__title {
+    font-family: 'NeueMachina-Medium';
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.facts__text {
+    line-height: 2;
+    font-size: 28px;
+    font-family: 'NeueMachina-Light';
+    margin-bottom: 40px;
+}
+
+.team-members__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.member__link {
+    width: 30%;
+    margin-right: 35px;
+    transition: all 0.5s;
+}
+
+.member__link:hover {
+    box-shadow: 0 5px 20px #EB623B;
+    border-radius: 10px;
+    transform: translateY(-15px);
+}
+
+.team__dots {
+    position: absolute;
+    top: -50px;
+    right: 30px;
+}
+
+/* секция моменты */
+.best-moment {
+    margin: 50px 0;
+    position: relative;
+}
+
+.moments__photo {
+    width: 730px;
+    margin: 0 30px;
+}
+
+.best-moment__text {
+    font-size: 32px;
+    font-family: 'NeueMachina-Light';
+    margin-bottom: 70px;
+}
+
+.slick-prev,
+.slick-next {
+    display: none !important;
+}
+
+/* СТРАНИЦА УЧАСТНИКА */
+.member__info {
+    padding: 2%;
+    padding-left: 200px;
+    position: relative;
+    height: 1000px;
+    background-image: url(../images/newkids_back.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.member__dannye {
+    margin-top: 200px;
+}
+
+.member-info__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.member {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.member-facts {
+    padding: 2% 5%;
+    position: relative;
+}
+
+.member__decor1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+}
+
+.member__decor2 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.member-facts__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.member-facts__text {
+    font-size: 32px;
+    font-family: 'NeueMachina-Light';
+    line-height: 1.8;
+    margin-bottom: 56px;
+    margin-left: 10px;
+    padding-top: 20px;
+}
+
+.member-facts__photo {
+    margin-right: 90px;
+    height: 940px;
+    width: 840px;
+}
+
+.orange {
+    font-family: 'NeueMachina-Medium';
+    font-size: 32px;
+    color: #EB623B;
+    margin-right: 30px;
+}
+
+.member__facts {
+    font-size: 24px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    max-width: 500px;
+}
+
+.facts__oformlenie {
+    display: flex;
+    align-items: start;
+}
+
+.flex {
+    display: flex;
+}
+
+/* СТРАНИЦА ВХОДА */
+.login {
+    background-image: url(../images/snowboarding.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2% 6%;
+    height: 1000px;
+}
+
+.login__container {
+    display: flex;
+    margin-top: 150px;
+}
+
+.login__title {
+    color: #EB623B;
+    font-size: 40px;
+    font-family: 'NeueMachina-Bold';
+    margin-bottom: 50px;
+}
+
+.login__img {
+    margin-right: 300px;
+}
+
+.form {
+    text-align: center;
+}
+
+.form__input {
+    background-color: transparent;
+    color: #fff;
+    font-size: 25px;
+    padding: 20px 0 20px 112px;
+    width: 550px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    border: 1px solid #EB623B;
+}
+
+.user {
+    background-image: url(../images/user.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 30px 10px;
+}
+
+.lock {
+    background-image: url(../images/lock.png);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: 30px 10px;
+    margin-bottom: 30px;
+}
+
+.form__text {
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.form__link {
+    color: #EB623B;
+}
+
+.btn__form {
+    font-size: 25px;
+    background-color: #EB623B;
+    color: #fff;
+    font-family: 'NeueMachina-Bold';
+    padding: 15px 50px;
+    border-radius: 5px;
+    border: 1px solid #EB623B;
+    transition: all 0.5s;
+}
+
+.btn__form:hover {
+    background-color: transparent;
+    border: 1px solid #EB623B;
+}
+
+/* СТРАНИЦА РЕГИСТРАЦИИ */
+
+.registr__img {
+    margin-right: 200px;
+    width: 900px;
+}
+.registr__container {
+    display: flex;
+}
+.form__refistr {
+    margin-top: 100px;
+    text-align: center;
+}
+.user__registr {
+    background-image: url(../images/user.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 30px 15px;
+}
+.lock__registr {
+    background-image: url(../images/lock.png);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: 30px 15px;
+}
+.email__refistr {
+    background-image: url(../images/email.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 35px 25px;
+}
+.phone__registr {
+    background-image: url(../images/phone.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 40px 20px;
+    margin-bottom: 30px;
+}
+/* СТРАНИЦА ЛИЧНОГО КАБИНЕТА */
+.personal-page {
+    background-image: url(../images/snowboarding.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 100px;
+}
+.personpage-ticket__container {
+    display: flex;
+    text-align: center;
+}
+.personal-ticket__code {
+    background-color: #D9D9D9;
+    color: #070707;
+    padding: 50px 40px;
+}
+.flex__ticket {
+    display: flex;
+    justify-content: space-between;
+}
+.personal-ticket__row {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.personal-ticket__time {
+    font-size: 20px;
+}
+.ticket__code {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+.personal__ticket {
+    background-image: url(../images/ticket-back.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 1200px;
+    text-align: left;
+}
+.personal-ticket__place {
+    font-size: 22px;
+    padding: 30px 0px 40px 100px;
+}
+.personal-ticket__title {
+    font-size: 35px;
+    font-family: 'NeueMachina-Bold';
+    padding: 0 0 80px 100px;
+}
+.flex__personal__ticket {
+    display: flex;
+    background-color: #070707bd;
+    width: 800px;
+}
+.first {
+    margin-left: 100px;
+}
+.first__number {
+    margin-left: 110px;
+}
+.personal-ticket__seat {
+    font-size: 30px;
+    padding: 30px 70px 20px 0;
+}
+.personal-ticket__number {
+    font-size: 35px;
+    font-family: 'NeueMachina-Bold';
+    margin-bottom: 30px;
+}
+.seat__ticket {
+    margin-left: 30px;
+}
+.data {
+    margin-right: 80px;
+}
+
+/* выпадающий список */
+/* Кнопка выпадающего списка */
+.dropbtn {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Выпадающее содержимое (скрыто по умолчанию) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    min-width: 160px;
+    font-size: 18px;
+    border: 1px solid #EB623B;
+    z-index: 1;
+}
+
+/* Ссылки внутри выпадающего списка */
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Изменение цвета выпадающих ссылок при наведении курсора */
+.dropdown-content a:hover {
+    background-color: #eb613ba0
+}
+
+/* Показать выпадающее меню (используйте JS, чтобы добавить этот класс .dropdown-content содержимого, когда пользователь нажимает на кнопку выпадающего списка) */
+.show {
+    display: block;
+}
+.buttons-personal__container {
+    display: flex;
+    align-items: center;
+}
+.personal__backet {
+    margin-right: 25px;
+}
+.personal__login {
+    font-size: 22px;
+    font-family: 'NeueMachina-Light';
+    margin-right: 15px;
+}
+
+/* СТРАНИЦА ПРОФИЛЯ */
+
+.personal-page__container {
+    background-image: url(../images/profile-page.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px 10px 10px 10px;
+    height: 700px;
+    flex-wrap: wrap;
+    display: flex;
+}
+.profile-page__avatar {
+    position: absolute;
+    top: -60px;
+    left: 80px;
+}
+.personal-page__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-self: flex-end;
+    background-color: #434343;
+    border-radius: 0 0 10px 10px;
+    width: 1650px;
+    height: 250px;
+    padding: 30px 50px 30px 300px;
+}
+.personal-user__name {
+    font-size: 45px;
+    margin-bottom: 20px;
+    font-family: 'NeueMachina-Medium';
+}
+.personal-user__info {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+.profile__btn {
+    font-size: 25px;
+    border: 1px solid #EB623B;
+    border-radius: 10px;
+    color: #fff;
+    padding: 15px 20px;
+    margin-right: 20px;
+}
+
+/* СТРАНИЦА РЕДАКТИРОВАТЬ ПАРОЛЬ */
+
+.edit-page__container {
+    display: flex;
+}
+.edit-user__avatar {
+    margin-right: 60px;
+    width: 210px;
+    height: 255px;
+}
+.edit-page__content {
+    padding-top: 30px;
+    margin-right: 100px;
+}
+.edit-page__label {
+    font-size: 30px;
+    font-family: 'NeueMachina-Medium';
+}
+.edit-page__input {
+    padding: 20px 30px;
+    background-color: transparent;
+    border: 1px solid #EB623B;
+    border-radius: 10px;
+    width: 463px;
+    color: #fff;
+    font-size: 18px;
+    margin: 20px 0 50px 0;
+}
+.edit-page__input::placeholder {
+    color: #fff;
+}
+.edit-page__btn {
+    background-color: #EB623B;
+    color: #fff;
+    border: 1px solid #EB623B;
+    font-size: 25px;
+    padding: 15px 55px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-top: 40px;
+}
+
+.edit-page__btn:hover {
+    background-color: transparent;
+}
+
+/* СТРАНИЦА МАГАЗИНА */
+
+.shop-page {
+    background-image: url(../images/shop-back.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-top: 80px;
+}
+.shop-img__container {
+    background-color: #eb613b50;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+.shop__element {
+    width: 30%;
+}
+.shop__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 75px;
+    margin-bottom: 50px;
+}
+.shop__heart {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.shop-filter__container {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.shop__filter {
+    cursor: pointer;
+    font-size: 25px;
+    color: #fff;
+    margin-right: 40px;
+    border: 1px solid #EB623B;
+    border-radius: 10px;
+    padding: 14px 30px;
+    background-color: transparent;
+    transition: all 0.5s;
+}
+.all {
+    padding: 15px 30px;
+}
+.shop__filter:hover {
+    background-color: #EB623B;
+}
+.shop-favorite__form {
+    height: 0px;
+}
+.shop__heart:hover {
+    background-image: url(../images/favorite-fill.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.shop-text {
+    font-size: 25px;
+    font-family: 'NeueMachina-Light';
+    margin-bottom: 20px;
+}
+.shop__price {
+    font-size: 25px;
+    color: #EB623B;
+    font-family: 'NeueMachina-Bold';
+}
+.shop-price__container {
+    display: flex;
+    justify-content: space-between;
+}
+.add__btn {
+    cursor: pointer;
+    color: #EB623B;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    font-size: 50px;
+    top: -25px;
+    right: -10px;
+}
+.shop-add__form {
+    height: 0px;
+    position: relative;
+}
+
+/* СТРАНИЦА КОРЗИНЫ */
+
+.backet-page {
+    background-image: url(../images/snowboarding.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+}
+.backet-page__container {
+    display: flex;
+    justify-content: space-between;
+}
+.backet-total__price {
+    display: flex;
+    justify-content: space-between;
+}
+.backet-page__table {
+    text-align: left;
+    border-collapse: collapse;
+    width: 1000px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+}
+.table-title__item {
+    font-size: 28px;
+    font-family: 'NeueMachina-Medium';
+    color: #EB623B;
+    padding-bottom: 30px;
+}
+.table__title {
+    border-bottom: 2px solid #EB623B;
+}
+.table-content {
+    border-bottom: 2px solid #EB623B;
+}
+.table-content__img {
+    width: 180px;
+    margin-right: 40px;
+}
+.table-content__photo {
+    display: flex;
+    align-items: center;
+}
+.table-tovar__name {
+    width: 100px;
+    font-size: 22px;
+    line-height: 1.2;
+}
+.table-content__item {
+    font-size: 25px;
+    font-family: 'NeueMachina-Medium';
+    color: #EB623B;
+}
+.table__delet {
+    color: #fff;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid #EB623B;
+    background-color: transparent;
+    padding: 10px 20px;
+}
+.backet__total {
+    width: 500px;
+    padding: 40px 45px;
+    border: 1px solid #EB623B;
+    margin-bottom: 100px;
+}
+.total {
+    color: #EB623B;
+    font-size: 25px;
+    font-family: 'NeueMachina-Medium';
+    margin-bottom: 20px;
+}
+.backet-total__price {
+    border-bottom: 1px solid #EB623B;
+    margin-bottom: 40px;
+}
+.backet-total__label {
+    font-size: 22px;
+    font-family: 'NeueMachina-Light';
+}
+.backet-total__input {
+    width: 390px;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 15px 20px;
+    border: 1px solid #EB623B;
+    margin: 30px 0;
+    color: #fff;
+    font-size: 18px;
+}
+.backet-total__btn {
+    background-color: #EB623B;
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid #EB623B;
+    border-radius: 10px;
+    padding: 10px 40px;
+    margin-top: 20px;
+    transition: all 0.5s;
+}
+.backet-total__btn:hover {
+    background-color: transparent;
+}
+
+/* СТРАНИЦА С ТУРНИРОНОЙ ТАБЛИЦОЙ */
+
+.tournament-page {
+    background-image: url(../images/tour-back.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 2000px;
+    padding: 2% 6%;
+    position: relative;
+}
+.tournament-page__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.tournament-link__img {
+    width: 35px;
+}
+.newkids {
+    width: 55px;
+}
+.newkids__right {
+    width: 65px;
+    margin-left: 20px;
+}
+.logo__right {
+    margin-left: 10px;
+}
+.tourmanemt-link__name {
+    color: #fff;
+    font-size: 17px;
+    font-family: 'NeueMachina-Light';
+    margin-left: 20px;
+}
+.tournament-page__element,
+.tournament__element {
+    border: 1px solid #EB623B;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+.tournament__element {
+    margin-bottom: 60px;
+}
+.right {
+    text-align: right;
+}
+.tournament-page__item {
+    margin-bottom: 200px;
+}
+.tournament-page__item2 {
+    margin-top: 40px;
+    margin-bottom: 120px;
+}
+.tournament-page__item3 {
+    margin-top: 160px;
+}
+.title__tournament-page {
+    font-size: 60px;
+    color: #EB623B;
+    font-family: 'NeueMachina-Вold';
+    position: absolute;
+    left: 44%;
+    top: 40%;
+}
+.tournament-page__final {
+    display: flex;
+    justify-content: space-between;
+    padding: 4% 15%;
+
+}
+.tournament-page__group {
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+.tournament-page__winners {
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 15%;
+    text-align: center;
+}
+.tournament__winner {
+    border: 1px solid #EB623B;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    padding: 25px;
+}
+.winner__img {
+    width: 100px;
+}
+.winner-newkids__img {
+    width: 150px;
+    margin-top: 20px;
+}
+.winner-flacco__img {
+    width: 120px;
+}
+.winner__name {
+    margin: 20px 0;
+    font-size: 20px;
+}
+.winner__number {
+    font-size: 45px;
+    color: #EB623B;
+    font-family: 'NeueMachina-Bold';
+}
+.winner__place {
+    font-size: 25px;
+    color: #EB623B;
+    font-family: 'NeueMachina-Bold';
+}
+
+/* СТРАНИЦА ПОКУПКИ БИЛЕТОВ */
+
+.ticket-page__info {
+    background-image: url(../images/ticket-page-back.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-top: 80px;
+    margin-bottom: 100px;
+}
+.ticket-info__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    margin-bottom: 180px;
+}
+.ticket-page__title {
+    color: #EB623B;
+    font-size: 32px;
+    font-family: 'NeueMachina-Medium';
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.ticket-page__lable {
+    font-size: 25px;
+}
+.ticket-page__input {
+    width: 400px;
+    height: 47px;
+    font-size: 20px;
+    padding: 25px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    margin: 30px 0;
+    outline: none;
+    border: 2px solid #D9D9D9;
+    color: #070707;
+}
+.ticket-page__input:focus {
+    border: 2px solid #EB623B;
+}
+
+/* выбор места */
+
+.ticket-place__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.movie__lable {
+    font-size: 32px;
+}
+.movie-container {
+    margin: 20px;
+}
+.movie-container select {
+    background-color: #fff;
+    border: 0;
+    border-radius: 5px;
+    font-size: 25px;
+    margin-left: 10px;
+    padding: 5px 15px 5px 15px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.container {
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+.seat {
+    background-color: #434343;
+    height: 50px;
+    width: 65px;
+    margin: 10px;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.seat.selected {
+    background-color: #EB623B;
+}
+.seat.sold {
+    background-color: #fff;
+}
+.seat:nth-of-type(2) {
+    margin-right: 80px;
+}
+.seat:nth-last-of-type(2) {
+    margin-left: 80px;
+}
+.seat:not(.sold):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.showcase .seat:not(.sold):hover {
+    cursor: default;
+    transform: scale(1);
+}
+.showcase {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+small {
+    font-size: 20px;
+}
+.showcase li small {
+    margin-left: 10px;
+}
+.row {
+    display: flex;
+}
+.screen {
+    border: 1px solid #EB623B;
+    height: 250px;
+    width: 800px;
+    margin: 30px 0;
+    transform: rotateX(-48deg);
+    box-shadow: 0 3px 10px #EB623B;
+}
+.screen__name{
+    font-size: 35px;
+    color: #EB623B;
+    font-family: 'NeueMachina-Medium';
+    text-align: center;
+    margin-top: 100px;
+}
+.text {
+    font-size: 25px;
+    margin: 20px 0;
+}
+.text span {
+    color: #EB623B;
+}
+.ticket-payment__container{
+    width: 1150px;
+    height: 600px;
+    margin: 0 auto;
+    border: 1px solid #EB623B;
+    border-radius: 50px;
+    padding: 40px 50px;
+    position: relative;
+}
+.payment-system__img{
+    float: right;
+}
+.ticket-page__cart{
+    background-color: #434343;
+    width: 430px;
+    height: 240px;
+    border-radius: 20px;
+    border: 1px solid #8B8B8B;
+    padding: 70px 50px 40px 50px;
+    margin-top: 112px;
+    margin-left: 200px;
+    margin-bottom: 110px;
+}
+.cart__emblem{
+    width: 60px;
+    height: 37px;
+    border-radius: 10px;
+    border: 1px solid #8B8B8B;
+}
+.cart__decor, .cart__info, .ticket-page__total{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 23px;
+    align-items: center;
+}
+.cart__number{
+    font-size: 20px;
+    background-color: #909090;
+    border: 1px solid #E6E6E6;
+    width: 330px;
+    height: 30px;
+    border-radius: 20px;
+    color: #fff;
+    padding: 10px 54px;
+    margin-bottom: 20px;
+    outline: none;
+}
+.cart__number:focus, .cart__data:focus{
+    border: 1px solid #EB623B;
+}
+.cart__fio{
+    font-size: 16px;
+    margin-top: 15px;
+}
+.cart__data{
+    width: 95px;
+    height: 30px;
+    background-color: #909090;
+    border: 1px solid #E6E6E6;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 20px;
+    padding-left: 15px;
+    outline: none;
+}
+.ticket-cart__back{
+    background-color: #434343;
+    width: 430px;
+    height: 240px;
+    border-radius: 20px;
+    border: 1px solid #8B8B8B;
+    padding: 70px 50px 40px 50px;
+    position: absolute;
+    z-index: -10;
+    top: 35%;
+    right: 18%;
+}
+.cart-back__decor{
+    background-color: #2D2D2D;
+    height: 56px;
+    width: 375px;
+    margin-bottom: 20px;
+}
+.cart__code{
+    width: 92px;
+    height: 30px;
+    font-size: 20px;
+    color: #fff;
+    padding: 5px 24px;
+    margin-left: 150px;
+    background-color: #909090;
+    border-radius: 20px;
+    border: 1px solid #E6E6E6;
+}
+.ticket-total__price{
+    font-size: 32px;
+    color: #EB623B;
+}
+.total__price{
+    font-family: 'NeueMachina-Bold';
+}
+.ticket-page__btn{
+    background-color: #EB623B;
+    color: #fff;
+    font-size: 28px;
+    border-radius: 20px;
+    border: 1px solid #EB623B;
+    padding: 10px 48px;
+    transition: all 0.5s;
+}
+.ticket-page__btn:hover{
+    background-color: transparent;
+}
+
