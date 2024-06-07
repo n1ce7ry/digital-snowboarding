@@ -17,7 +17,7 @@ def reset_password(request):
             user.set_password(form.cleaned_data['new_password'])
             user.save()
             update_session_auth_hash(request, user)
-            return redirect('edit-profile')
+            return redirect('profile')
         else:
             return render(
                 request,

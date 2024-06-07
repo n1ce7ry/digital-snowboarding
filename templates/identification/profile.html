@@ -19,8 +19,8 @@
                     <p class="personal-user__info">{{ user.phone }}</p>
                 </div>
                 <div class="profile-btn__container">
-                    <a class="profile__btn hvr-sweep-to-right" href="edit-page.html">Изменить профиль</a>
-                    <a class="profile__btn hvr-sweep-to-right" href="editpassword-page.html">Изменить пароль</a>
+                    <a class="profile__btn hvr-sweep-to-right" href="{% url 'edit-profile' %}">Изменить профиль</a>
+                    <a class="profile__btn hvr-sweep-to-right" href="{% url 'reset-password' %}">Изменить пароль</a>
                 </div>
 
             </div>
