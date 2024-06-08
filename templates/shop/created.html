@@ -1,8 +1,17 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
+{% load static %}
+
+{% block title %}
+{% endblock %}
 
 {% block body %}
-    <h1>Thank you</h1>
-    <p>Your order has been successfully completed. Your order number is
-        <strong>#{{ order.id }}</strong>.</p>
+
+<main class="main">
+    <section class="backet-page">
+        <h1 class="title">Спасибо!</h1>
+        <p class="order-done">Ваш заказ был успешно обработан. В ближайшее время с Вами свяжутся. Номер вашего заказа #{{ order.id }}</p>
+    </section>
+</main>
+
 {% endblock %}
