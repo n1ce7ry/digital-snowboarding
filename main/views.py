@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from shop.models import Souvenir
 from shop.forms import CartAddSouvenirForm
+from .models import Team
 from django.http import JsonResponse
 
 
@@ -12,6 +13,11 @@ User = get_user_model()
 
 def home_page(request):
     return render(request, 'main/home_page.html')
+
+
+def teams(request):
+    teams = Team.objects.all()
+    return render(request, 'main/teams-page.html', context={'teams': teams})
 
 
 @login_required
