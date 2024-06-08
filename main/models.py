@@ -4,7 +4,9 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Team(models.Model):
     name = models.CharField(max_length=255, verbose_name='Название команды')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Слаг')
     logo = models.ImageField(upload_to='team_logos/', verbose_name='Логотип команды')
+    team_photo= models.ImageField(upload_to='team_photos/', verbose_name='Фото команды')
     full_name = models.CharField(max_length=300, verbose_name='Полное название команды')
     country = models.CharField(max_length=100, verbose_name='Страна команды')
     captain = models.CharField(max_length=255, verbose_name='Капитан команды')

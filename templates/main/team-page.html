@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}" />
+{% endblock %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+
+<main class="main">
+    <section class="team">
+        <div class="team__container">
+            <img src="{{ team.logo.url }}" alt="Логотип" class="team__logo">
+            <h2 class="title2">{{ team.name }}</h2>
+
+            <img src="{{ team.team_photo.url }}" alt="{{ team.name }}" class="team__photo">
+
+            <div class="team-members__container">
+                {% for player in players %}
+                <p class="team__fio">
+                    {{ player.name }}
+                </p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+    <section class="timetable">
+        <img class="timetable__decor1" src="{% static 'images/teamd2.png' %}" alt="Декор">
+        <img class="timetable__decor2" src="{% static 'images/teamd.png' %}" alt="Декор">
+        <h2 class="timetable__title">Расписание игр</h2>
+        <p class="timetable__name">PLAYOFF</p>
+        <div class="timetable__container">
+            {% for game in games %}
+            <div class="timerible__elements">
+                <div class="timetable__time">
+                    <p class="time__data">{{ game.date|date:"d F (l)" }}</p>
+                    <p class="time__time">{{ game.date|time }} MSK</p>
+                    <p class="time__place">{{ game.location }}</p>
+                </div>
+                <img class="timetable__logo" src="{{ game.player_one.team.logo.url }}" alt="Логотип">
+                <p class="protiv">VS</p>
+                <img class="timetable__logo2" src="{{ game.player_two.team.logo.url }}" alt="Логотип">
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="team-structure">
+        <div class="team-info__container">
+            <img src="{% static 'images/teamdots.png' %}" alt="Декор" class="team__dots">
+            <div class="team__info">
+                <h2 class="team-info__title">Данные команды</h2>
+                <p class="team-info__text">
+                    Полное название: <span class="regular">{{ team.full_name }}</span>
+                </p>
+                <p class="team-info__text">
+                    Страна: <span class="regular">{{ team.country }}</span>
+                </p>
+                <p class="team-info__text">
+                    Капитан: <span class="regular">{{ team.captain }}</span>
+                </p>
+                <p class="team-info__text">
+                    Год основания: <span class="regular">{{ team.year_of_foundation }}</span>
+                </p>
+            </div>
+            <div class="team__facts">
+                <h2 class="facts__title">Интересный факт</h2>
+                <p class="facts__text">{{ team.interesting_fact }}</p>
+            </div>
+        </div>
+        <h2 class="team-info__title">Состав</h2>
+        <div class="team-members__container">
+            {% for player in players %}
+            <a href="member-page.html" class="member__link">
+                <img class="member__image" src="{{ player.label_photo.url }}" alt="Фото игрока">
+                <p class="member__name">{{ player.full_name }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="best-moment">
+        <img class="timetable__decor1" src="{% static 'images/teamd2.png' %}" alt="Декор">
+        <img class="timetable__decor2" src="{% static 'images/teamd.png' %}" alt="Декор">
+        <h2 class="team-info__title">Фотогалерея </h2>
+        <p class="best-moment__text">
+            Интересные моменты чемпионата
+        </p>
+        <div class="slider">
+            {% for image in gallery %}
+            <div>
+                <img class="moments__photo" src="{{ image.photo.url }}" alt="Интересные моменты чемпионата">
+            </div>
+            {% endfor %}
+            <!-- <div class="test">
+                <img class="moments__photo" src="{% static 'images/newkids1.png' %}" alt="">
+            </div>
+            <div>
+                <img class="moments__photo" src="{% static 'images/newkids2.png' %}" alt="">
+            </div>
+            <div>
+                <img class="moments__photo" src="{% static 'images/newkids2.png' %}" alt="">
+            </div>
+            <div>
+                <img class="moments__photo" src="images/newkids5.png" alt="">
+            </div>
+            <div>
+                <img class="moments__photo" src="images/newkids6.png" alt="">
+            </div> -->
+        </div>
+    </section>
+    <section class="social-media">
+        <div class="social-media__container">
+            <h2 class="title2">СЛЕДИТЕ ЗА ВСЕМИ НОВОСТЯМИ В НАШИХ <br>
+                СОЦИАЛЬНЫХ СЕТЯХ</h2>
+            <div class="social-media__elements">
+                <a href="#" class="social-media__item">
+                    <img src="{% static 'images/vk.png' %}" alt="Вконтакте" class="social-media__icon">
+                </a>
+                <a href="#" class="social-media__item">
+                    <img src="{% static 'images/telegram.png' %}" alt="Телеграм" class="social-media__icon">
+                </a>
+                <a href="#" class="social-media__item">
+                    <img src="{% static 'images/youtube.png' %}" alt="Ютуб" class="social-media__icon">
+                </a>
+                <a href="#" class="social-media__item">
+                    <img src="{% static 'images/twitch.png' %}" alt="Твич" class="social-media__icon">
+                </a>
+                <a href="#" class="social-media__item">
+                    <img src="{% static 'images/instagram.png' %}" alt="Инстаграм" class="social-media__icon">
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

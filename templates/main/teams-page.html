@@ -16,7 +16,7 @@
             {% for team in teams %}
             <div class="team__card">
                 <div class="team-card__logo hvr-grow-shadow">
-                    <a href="newkids-page.html"><img src="{{ team.logo.url }}" alt="Логотип" class="team__logo"></a>
+                    <a href="{% url 'team' team.slug %}"><img src="{{ team.logo.url }}" alt="Логотип" class="team__logo"></a>
                 </div>
                 <p class="team-card__name">
                     <a href="newkids-page.html" class="team__link">{{ team.name }}</a>
