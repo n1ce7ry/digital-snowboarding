@@ -20,12 +20,23 @@
             {% for souvenir in souvenirs %}
             <div class="shop__element {{ souvenir.type.name }}">
                 <div class="shop-img__container">
-                    <img src="{{ souvenir.image.url }}" alt="{{ souvenir.name }}" class="shop img">
-                    <form action="" class="shop-favorite__form" method="post">
-                        <button class="favorite__btn" type="submit">
-                            <img src="{% static 'images/favorite.png' %}" alt="Избранное" class="shop__heart">
-                        </button>
-                    </form>
+                    {% if souvenir in favorite_souvenirs %}
+                        <img src="{{ souvenir.image.url }}" alt="{{ souvenir.name }}" class="shop__img">
+                        <div class="shop-favorite__form">
+                            {% csrf_token %}
+                            <button class="favorite__btn" type="submit">
+                                <img src="{% static 'images/favorite-fill.svg' %}" alt="В Избранном" class="shop__heart in_favorite">
+                            </button>
+                        </div>
+                    {% else %}
+                        <img src="{{ souvenir.image.url }}" alt="{{ souvenir.name }}" class="shop__img">
+                        <form action="{% url 'add_favorite_souvenirs' souvenir.id %}" class="shop-favorite__form" method="post">
+                            {% csrf_token %}
+                            <button class="favorite__btn" type="submit">
+                                <img src="{% static 'images/favorite.png' %}" alt="Избранное" class="shop__heart">
+                            </button>
+                        </form>
+                    {% endif %}
                 </div>
                 <div class="shop-content__container">
                     <p class="shop-text">{{ souvenir.name }}</p>

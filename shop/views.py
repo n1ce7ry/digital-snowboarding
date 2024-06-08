@@ -3,10 +3,15 @@ from django.views.decorators.http import require_POST
 from .models import Souvenir, SouvenirType, OrderItem
 from .cart import Cart
 from .forms import CartAddSouvenirForm, CheckoutForm
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 
 def shop(request):
     souvenirs = Souvenir.objects.all()
+    favorite_souvenirs = User.objects.get(id=request.user.id).favorite_souvenirs.all()
     souvenirs_types = SouvenirType.objects.all()
     cart_souvenir_form = CartAddSouvenirForm()
     return render(
@@ -14,7 +19,8 @@ def shop(request):
         'shop/shop.html',
         context={'souvenirs': souvenirs,
                  'cart_souvenir_form': cart_souvenir_form,
-                 'souvenirs_types': souvenirs_types,}
+                 'souvenirs_types': souvenirs_types,
+                 'favorite_souvenirs': favorite_souvenirs}
     )
 
 

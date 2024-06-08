@@ -37,7 +37,7 @@
                 <div class="buttons-personal__container">
                     <a href="{% url 'cart_detail' %}" class="personal__backet"><img src="{% static 'images/backet.png' %}" alt="Корзина"
                             class="backet"></a>
-                    <a href="favorite-page.html" class="personal__favorite"><img src="{% static 'images/favorite.png' %}" alt="Избранное"
+                    <a href="{% url 'favorite_souvenirs' %}" class="personal__favorite"><img src="{% static 'images/favorite.png' %}" alt="Избранное"
                             class="backet"></a>
                     <div class="dropdown">
                         <div onclick="myFunction()" class="dropbtn">
@@ -158,9 +158,6 @@
         </footer>
     </div>
 
-    {% if user.is_authenticated %}
-        <script src="{% static 'js/drop.js' %}"></script>
-    {% endif %}
 
     {% block js %}
     {% endblock %}

@@ -1049,63 +1049,70 @@ footer {
 .data {
     margin-right: 80px;
 }
-
-/* выпадающий список */
-/* Кнопка выпадающего списка */
+ /* Dropdown Button */
 .dropbtn {
-    background-color: transparent;
+    padding: 0px 16px;
+    font-size: 16px;
     display: flex;
     align-items: center;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+    transition: all 0.5s;
+}
+
+.dropbtn:hover {
     cursor: pointer;
 }
 
-/* Контейнер <div> - необходим для размещения выпадающего содержимого */
+/* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
 }
-
-/* Выпадающее содержимое (скрыто по умолчанию) */
+/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: transparent;
     min-width: 160px;
-    font-size: 18px;
-    border: 1px solid #EB623B;
     z-index: 1;
+    border: 1px solid #EB623B;
 }
 
-/* Ссылки внутри выпадающего списка */
+/* Links inside the dropdown */
 .dropdown-content a {
-    color: #fff;
+    color: #EB623B;
     padding: 12px 16px;
+    font-size: 18px;
     text-decoration: none;
     display: block;
 }
 
-/* Изменение цвета выпадающих ссылок при наведении курсора */
-.dropdown-content a:hover {
-    background-color: #eb613ba0
-}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #eb613b49}
 
-/* Показать выпадающее меню (используйте JS, чтобы добавить этот класс .dropdown-content содержимого, когда пользователь нажимает на кнопку выпадающего списка) */
-.show {
-    display: block;
-}
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
 .buttons-personal__container {
     display: flex;
     align-items: center;
 }
 .personal__backet {
     margin-right: 25px;
+    width: 35px;
+    height: 35px;
+}
+.personal__favorite{
+    width: 35px;
+    height: 35px; 
+}
+.personal__user{
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 .personal__login {
     font-size: 22px;
+    cursor: pointer;
     font-family: 'NeueMachina-Light';
     margin-right: 15px;
 }
@@ -1209,12 +1216,17 @@ footer {
     background-size: 100%;
     background-repeat: no-repeat;
     padding-top: 80px;
+    padding-bottom: 100px;
 }
 .shop-img__container {
     background-color: #eb613b50;
     text-align: center;
     position: relative;
     margin-bottom: 20px;
+    height: 450px;
+}
+.shop__img{
+    height: 450px;
 }
 .shop__element {
     width: 30%;
@@ -1231,6 +1243,13 @@ footer {
     right: 40px;
     transition: all 0.5s;
     cursor: pointer;
+}
+.in_favorite {
+    cursor: default;
+}
+.favorite__btn{
+    background-color: #eb613b50;
+    border: none;
 }
 .shop-filter__container {
     margin-top: 50px;
@@ -1252,9 +1271,6 @@ footer {
 }
 .shop__filter:hover {
     background-color: #EB623B;
-}
-.shop-favorite__form {
-    height: 0px;
 }
 .shop__heart:hover {
     background-image: url(../images/favorite-fill.svg);
@@ -1297,6 +1313,7 @@ footer {
     background-size: cover;
     background-repeat: no-repeat;
     padding-top: 100px;
+    margin-bottom: 100px;
 }
 .backet-page__container {
     display: flex;
@@ -1310,6 +1327,7 @@ footer {
     text-align: left;
     border-collapse: collapse;
     width: 1000px;
+    height: 400px;
     margin-bottom: 100px;
     margin-right: 100px;
 }
@@ -1324,10 +1342,12 @@ footer {
 }
 .table-content {
     border-bottom: 2px solid #EB623B;
+    height: 200px;
 }
 .table-content__img {
     width: 180px;
     margin-right: 40px;
+    padding-bottom: 20px;
 }
 .table-content__photo {
     display: flex;
@@ -1353,6 +1373,7 @@ footer {
 }
 .backet__total {
     width: 500px;
+    height: 650px;
     padding: 40px 45px;
     border: 1px solid #EB623B;
     margin-bottom: 100px;
@@ -1768,4 +1789,40 @@ small {
 .ticket-page__btn:hover{
     background-color: transparent;
 }
+/* СТРАНИЦА ИЗБРАННОЕ ПУСТАЯ */
+.no-favorite{
+    font-size: 46px;
+    font-family: 'NeueMachina-Light';
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
 
+.no-page__btn{
+    background-color: #EB623B;
+    font-size: 25px;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 1px solid #EB623B;
+    transition: all 0.5s;
+    margin-left: 600px;
+}
+
+.shop-page_no-page {
+    margin-bottom: 100px;
+}
+
+.no-page__btn:hover{
+    background-color: transparent;
+}
+/* СТРАНИЦА КОРЗИНЫ ПУСТАЯ */
+.no-backet{
+    font-size: 46px;
+    font-family: 'NeueMachina-Light';
+    margin: 100px 80px;
+}
+/* СТРАНИЦА СПАСИБО ЗА ЗАКАЗ */
+.order-done{
+    font-size: 30px;
+}

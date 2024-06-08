@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+
+
+
+<main class="main">
+    {% if favorite_souvenirs %}
+    <section class="shop-page">
+        <h1 class="title">ИЗБРАННОЕ</h1>
+        <div class="shop__container">
+            {% for favorite_souvenir in favorite_souvenirs %}
+            <div class="shop__element">
+                <div class="shop-img__container">
+                    <img src="{{ favorite_souvenir.image.url }}" alt="{{ favorite_souvenir.name }}" class="shop__img">
+                    <form action="{% url 'del_favorite_souvenirs' favorite_souvenir.id %}" class="shop-favorite__form"
+                        method="post">
+                        {% csrf_token %}
+                        <button class="favorite__btn" type="submit">
+                            <img src="{% static 'images/favorite-fill.svg' %}" alt="Избранное" class="shop__heart">
+                        </button>
+                    </form>
+                </div>
+                <div class="shop-content__container">
+                    <p class="shop-text">{{ favorite_souvenir.name }}</p>
+                    <div class="shop-price__container">
+                        <p class="shop__price">{{ favorite_souvenir.price }} ₽</p>
+                        <form action="{% url 'cart_add' favorite_souvenir.id %}" class="shop-add__form" method="POST">
+                            {{ cart_souvenir_form }}
+                            {% csrf_token %}
+                            <button class="add__btn" type="submit">+</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <section class="shop-page shop-page_no-page">
+            <h1 class="title">ИЗБРАННОЕ</h1>
+            <p class="no-favorite">Тут пока нет товаров :(</p>
+            <a href="{% url 'shop' %}" class="no-page__btn">Перейти к сувенирам</a>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}
