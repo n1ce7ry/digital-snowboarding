@@ -30,10 +30,10 @@
                         </div>
                     {% else %}
                         <img src="{{ souvenir.image.url }}" alt="{{ souvenir.name }}" class="shop__img">
-                        <form action="{% url 'add_favorite_souvenirs' souvenir.id %}" class="shop-favorite__form" data-food-id={{ souvenir.id }} method="POST">
+                        <form action="{% url 'add_favorite_souvenirs' souvenir.id %}" class="shop-favorite__form" data-souvenir-id={{ souvenir.id }} method="POST">
                             {% csrf_token %}
-                            <button class="favorite__btn" type="submit">
-                                <img src="{% static 'images/favorite.png' %}" alt="Избранное" class="shop__heart">
+                            <button id="button_{{ souvenir.id }}" class="favorite__btn" type="submit">
+                                <img src="{% static 'images/favorite.png' %}" id=image_{{ souvenir.id }} alt="Избранное" class="shop__heart">
                             </button>
                         </form>
                     {% endif %}
@@ -42,7 +42,7 @@
                     <p class="shop-text">{{ souvenir.name }}</p>
                     <div class="shop-price__container">
                         <p class="shop__price">{{ souvenir.price }} ₽</p>
-                        <form action="{% url 'cart_add' souvenir.id %}" data-food-id={{ souvenir.id }} class="shop-add__form" method="POST">
+                        <form action="{% url 'cart_add' souvenir.id %}" data-souvenir-id={{ souvenir.id }} class="shop-add__form" method="POST">
                             {{ cart_souvenir_form }}
                             {% csrf_token %}
                             <button class="add__btn" type="submit">+</button>
@@ -60,5 +60,6 @@
 {% block js %}
 <script src="{% static 'js/filter.js' %}"></script>
 <script src="{% static 'js/cart.js' %}"></script>
+<script src="{% static 'js/favorite.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {% endblock %}
