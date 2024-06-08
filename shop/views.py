@@ -1,9 +1,12 @@
+import json
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from .models import Souvenir, SouvenirType, OrderItem
 from .cart import Cart
 from .forms import CartAddSouvenirForm, CheckoutForm
 from django.contrib.auth import get_user_model
+from django.contrib.sessions.exceptions import SessionInterrupted
+from django.http import JsonResponse
 
 
 User = get_user_model()
@@ -28,13 +31,19 @@ def shop(request):
 def cart_add(request, souvenir_id):
     cart = Cart(request)
     souvenir = get_object_or_404(Souvenir, id=souvenir_id)
-    form = CartAddSouvenirForm(request.POST)
-    if form.is_valid():
-        cd = form.cleaned_data
+
+    try:
+        data = json.loads(request.body)
+        quantity = data.get('quantity')
+        update = data.get('update')
         cart.add(souvenir=souvenir,
-                 quantity=cd['quantity'],
-                 update_quantity=cd['update'])
-    return redirect('cart_detail')
+                quantity = quantity,
+                update_quantity = update,)
+        return JsonResponse({'success': 'success', 'souvenir': souvenir.name })
+
+
+    except Exception:
+        raise SessionInterrupted
 
 
 def cart_remove(request, souvenir_id):

@@ -1826,3 +1826,25 @@ small {
 .order-done{
     font-size: 30px;
 }
+
+/* СТИЛИ ДЛЯ УВЕДОМЛЕНИЙ */
+
+.title__alert {
+    font-size: 18px !important;
+}
+
+.popup__alert {
+    border: 1px solid #EB623B;
+}
+
+.timer__alert {
+    background-color: white;
+}
+
+.cart__alert {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 18px;
+    color: #EB623B;
+}
