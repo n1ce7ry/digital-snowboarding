@@ -20,6 +20,7 @@
             {% for souvenir in souvenirs %}
             <div class="shop__element {{ souvenir.type.name }}">
                 <div class="shop-img__container">
+                    {% if user.is_authenticated %}
                     {% if souvenir in favorite_souvenirs %}
                         <img src="{{ souvenir.image.url }}" alt="{{ souvenir.name }}" class="shop__img">
                         <div class="shop-favorite__form">
@@ -36,6 +37,9 @@
                                 <img src="{% static 'images/favorite.png' %}" id=image_{{ souvenir.id }} alt="Избранное" class="shop__heart">
                             </button>
                         </form>
+                    {% endif %}
+                    {% else %}
+                    <img src="{{ souvenir.image.url }}" alt="{{ souvenir.name }}" class="shop__img">
                     {% endif %}
                 </div>
                 <div class="shop-content__container">
@@ -61,5 +65,5 @@
 <script src="{% static 'js/filter.js' %}"></script>
 <script src="{% static 'js/cart.js' %}"></script>
 <script src="{% static 'js/favorite.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'js/sweetalert.js' %}"></script>
 {% endblock %}

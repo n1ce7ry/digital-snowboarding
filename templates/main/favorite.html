@@ -14,7 +14,7 @@
     <section class="shop-page">
         <h1 class="title">ИЗБРАННОЕ</h1>
         <div class="shop__container">
-            {% for favorite_souvenir in favorite_souvenirs %}
+            {% for favorite_souvenir in favorite_souvenirs reversed %}
             <div class="shop__element">
                 <div class="shop-img__container">
                     <img src="{{ favorite_souvenir.image.url }}" alt="{{ favorite_souvenir.name }}" class="shop__img">
@@ -30,7 +30,7 @@
                     <p class="shop-text">{{ favorite_souvenir.name }}</p>
                     <div class="shop-price__container">
                         <p class="shop__price">{{ favorite_souvenir.price }} ₽</p>
-                        <form action="{% url 'cart_add' favorite_souvenir.id %}" class="shop-add__form" method="POST">
+                        <form action="{% url 'cart_add' favorite_souvenir.id %}" data-souvenir-id={{ favorite_souvenir.id }} class="shop-add__form" method="POST">
                             {{ cart_souvenir_form }}
                             {% csrf_token %}
                             <button class="add__btn" type="submit">+</button>
@@ -48,4 +48,9 @@
         {% endif %}
     </section>
 </main>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/cart.js' %}"></script>
+<script src="{% static 'js/sweetalert.js' %}"></script>
 {% endblock %}

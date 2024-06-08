@@ -13,8 +13,8 @@ User = get_user_model()
 
 
 def shop(request):
+    favorite_souvenirs = User.objects.get(id=request.user.id).favorite_souvenirs.all() if request.user.is_authenticated else None
     souvenirs = Souvenir.objects.all()
-    favorite_souvenirs = User.objects.get(id=request.user.id).favorite_souvenirs.all()
     souvenirs_types = SouvenirType.objects.all()
     cart_souvenir_form = CartAddSouvenirForm()
     return render(

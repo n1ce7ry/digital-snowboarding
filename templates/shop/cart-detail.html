@@ -11,8 +11,8 @@
 <main class="main">
     <section class="backet-page">
         <h1 class="title">ВАШИ ЗАКАЗЫ</h1>
+        {% if cart %}
         <div class="backet-page__container">
-            {% if cart %}
             <table class="backet-page__table">
                 <thead class="table__head">
                     <tr class="table__title">
@@ -48,20 +48,19 @@
 
                 {% csrf_token %}
                 {% for field in form %}
-                    <label class="backet-total__label" for="{{ field.auto_id }}">{{ field.label }}</label><br>
-                    {{ field }}<br>
-                    {{ field.errors }}
+                <label class="backet-total__label" for="{{ field.auto_id }}">{{ field.label }}</label><br>
+                {{ field }}<br>
+                {{ field.errors }}
                 {% endfor %}
 
                 <button type="submit" class="backet-total__btn">Оформить заказ</button>
             </form>
-
-            {% else %}
-            <p class="empty__cart">
-                Your cart is empty.
-            </p>
-            {% endif %}
         </div>
+
+        {% else %}
+                <p class="no-backet">Ваша корзина совсем пуста, отправляйтесь за покупками :)</p>
+                <a href="{% url 'shop' %}" class="no-page__btn">Перейти к сувенирам</a> 
+        {% endif %}
     </section>
 </main>
 
