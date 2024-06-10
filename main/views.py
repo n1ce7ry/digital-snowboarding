@@ -8,7 +8,7 @@ from django.db.models import Q
 
 from shop.models import Souvenir
 from shop.forms import CartAddSouvenirForm
-from .models import Team, Player, Gallery, GameSchedule
+from .models import Team, Player, Gallery, GameSchedule, InterestingFactAboutPlayer
 
 
 User = get_user_model()
@@ -16,6 +16,14 @@ User = get_user_model()
 
 def home_page(request):
     return render(request, 'main/home_page.html')
+
+
+def player(request, player_slug):
+    player = Player.objects.get(slug=player_slug)
+    player_facts = InterestingFactAboutPlayer.objects.filter(player=player)
+    return render(request,
+                  'main/player-page.html',
+                  context={'player': player, 'facts': player_facts})
 
 
 def team(request, team_slug):

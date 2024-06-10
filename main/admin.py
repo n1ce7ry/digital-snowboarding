@@ -27,6 +27,7 @@ class FactsInline(admin.StackedInline):
 
 @admin.register(Player)
 class PlayerAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('full_name',),}
     inlines = [FactsInline,]
 
 

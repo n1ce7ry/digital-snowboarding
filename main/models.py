@@ -26,6 +26,7 @@ class Team(models.Model):
 
 class Player(models.Model):
     full_name = models.CharField(max_length=255, verbose_name='Полное имя')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Слаг')
     birthday = models.DateField(verbose_name='Дата рождения')
     nationality = models.CharField(max_length=255, verbose_name='Гражданство')
     city = models.CharField(max_length=255, verbose_name='Город')
@@ -34,6 +35,7 @@ class Player(models.Model):
     quote = models.CharField(max_length=500, verbose_name='Цитата')
     photo = models.ImageField(upload_to='player_photos/', verbose_name='Фото игрока')
     label_photo = models.ImageField(upload_to='player_label_photos/', verbose_name='Дополнительное фото игрока')
+    label_team_photo = models.ImageField(upload_to='player_label_team_photos/', verbose_name='Фото игрока для страницы команды')
     team = models.ForeignKey(Team, on_delete=models.CASCADE, verbose_name='Команда игрока')
     
     class Meta:

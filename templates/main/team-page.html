@@ -3,8 +3,8 @@
 {% load static %}
 
 {% block extrahead %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}" />
 {% endblock %}
 
 {% block title %}
@@ -17,13 +17,12 @@
         <div class="team__container">
             <img src="{{ team.logo.url }}" alt="Логотип" class="team__logo">
             <h2 class="title2">{{ team.name }}</h2>
-
             <img src="{{ team.team_photo.url }}" alt="{{ team.name }}" class="team__photo">
 
             <div class="team-members__container">
                 {% for player in players %}
                 <p class="team__fio">
-                    {{ player.name }}
+                    {{ player.full_name }}
                 </p>
                 {% endfor %}
             </div>
@@ -78,10 +77,9 @@
         <h2 class="team-info__title">Состав</h2>
         <div class="team-members__container">
             {% for player in players %}
-            <a href="member-page.html" class="member__link">
-                <img class="member__image" src="{{ player.label_photo.url }}" alt="Фото игрока">
-                <p class="member__name">{{ player.full_name }}</p>
-            </a>
+                <a href="{% url 'player' player.slug %}" class="member__link">
+                    <img src="{{ player.label_team_photo.url }}" alt="Участник">
+                </a>
             {% endfor %}
         </div>
     </section>
@@ -99,21 +97,6 @@
                 <img class="moments__photo" src="{{ image.photo.url }}" alt="Интересные моменты чемпионата">
             </div>
             {% endfor %}
-            <!-- <div class="test">
-                <img class="moments__photo" src="{% static 'images/newkids1.png' %}" alt="">
-            </div>
-            <div>
-                <img class="moments__photo" src="{% static 'images/newkids2.png' %}" alt="">
-            </div>
-            <div>
-                <img class="moments__photo" src="{% static 'images/newkids2.png' %}" alt="">
-            </div>
-            <div>
-                <img class="moments__photo" src="images/newkids5.png" alt="">
-            </div>
-            <div>
-                <img class="moments__photo" src="images/newkids6.png" alt="">
-            </div> -->
         </div>
     </section>
     <section class="social-media">
@@ -145,8 +128,8 @@
 {% endblock %}
 
 {% block js %}
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
