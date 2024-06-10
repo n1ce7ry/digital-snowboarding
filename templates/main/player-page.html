@@ -28,9 +28,16 @@
                             Данные: <span class="regular">{{ player.height }} см / {{ player.weight }} кг</span>
                         </p>
                     </div>
+                    {% if player.photo %}
                     <div class="member__photo">
                         <img class="member" src="{{ player.photo.url }}" alt="{{ player.full_name }}">
                     </div>
+                    {% else %}
+                    <div class="member-without__photo">
+                        <img class="without__photo" src="{{ player.team.logo.url }}" alt="Логотип">
+                        <img class="without-photo__decor" src="{% static 'images/without-photo.png' %}" alt="Свечение">
+                    </div>
+                    {% endif %}
                 </div>
             </section>
             <section class="member-facts">

@@ -848,6 +848,23 @@ footer {
     max-width: 500px;
 }
 
+.without__photo{
+    width: 100%;
+    height: 100%;
+}
+
+.member-without__photo{
+    margin-top: 5%;
+    margin-right: 20%;
+}
+
+.without-photo__decor{
+    position: absolute;
+    right: 50px;
+    z-index: -10;
+    bottom: 100px;
+}
+
 .facts__oformlenie {
     display: flex;
     align-items: start;
@@ -1479,7 +1496,7 @@ footer {
 .title__tournament-page {
     font-size: 60px;
     color: #EB623B;
-    font-family: 'NeueMachina-Вold';
+    font-family: 'NeueMachina-Bold', sans-serif;
     position: absolute;
     left: 44%;
     top: 40%;

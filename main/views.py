@@ -18,6 +18,10 @@ def home_page(request):
     return render(request, 'main/home_page.html')
 
 
+def tournament_schedule(request):
+    return render(request, 'main/tournament-page.html')
+
+
 def player(request, player_slug):
     player = Player.objects.get(slug=player_slug)
     player_facts = InterestingFactAboutPlayer.objects.filter(player=player)

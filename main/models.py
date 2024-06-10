@@ -33,7 +33,7 @@ class Player(models.Model):
     height = models.PositiveSmallIntegerField(verbose_name='Рост')
     weight = models.PositiveSmallIntegerField(verbose_name='Вес')
     quote = models.CharField(max_length=500, verbose_name='Цитата')
-    photo = models.ImageField(upload_to='player_photos/', verbose_name='Фото игрока')
+    photo = models.ImageField(upload_to='player_photos/', blank=True, null=True, verbose_name='Фото игрока')
     label_photo = models.ImageField(upload_to='player_label_photos/', verbose_name='Дополнительное фото игрока')
     label_team_photo = models.ImageField(upload_to='player_label_team_photos/', verbose_name='Фото игрока для страницы команды')
     team = models.ForeignKey(Team, on_delete=models.CASCADE, verbose_name='Команда игрока')
