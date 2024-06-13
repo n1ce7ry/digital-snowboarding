@@ -8,6 +8,7 @@
 
 {% block body %}
         <main class="main">
+            {% if tickets %}
            <section class="personal-page">
             <h1 class="title">ВАШИ БИЛЕТЫ</h1>
             {% for ticket in tickets %}
@@ -49,5 +50,11 @@
             </div>
             {% endfor %}
            </section>
+            {% else %}
+            <section class="personal-page">
+                <h1 class="title">ВАШИ БИЛЕТЫ</h1>
+                <p class="no-favorite">Тут пока нет билетов :(</p>
+                <a href="{% url 'booking' %}" class="no-page__btn">Перейти к билетам</a>
+            {% endif %}
         </main>
 {% endblock %}
