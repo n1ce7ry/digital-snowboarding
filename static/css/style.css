@@ -1715,6 +1715,8 @@ small {
     margin-top: 112px;
     margin-left: 200px;
     margin-bottom: 110px;
+    position: relative;
+    z-index: 100;
 }
 .cart__emblem{
     width: 60px;
@@ -1766,9 +1768,9 @@ small {
     border: 1px solid #8B8B8B;
     padding: 70px 50px 40px 50px;
     position: absolute;
-    z-index: -10;
     top: 35%;
     right: 18%;
+    z-index: 10;
 }
 .cart-back__decor{
     background-color: #2D2D2D;

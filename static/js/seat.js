@@ -2,19 +2,21 @@ const container = document.querySelector(".container");
 const seats = document.querySelectorAll(".row .seat:not(.sold)");
 const count = document.getElementById("count");
 const total = document.getElementById("total");
+const payment = document.getElementById("payment");
+const quantity = document.getElementById('seat_data')
 const movieSelect = document.getElementById("movie");
 
 populateUI();
 
 let ticketPrice = +movieSelect.value;
 
-// Save selected movie index and price
+
 function setMovieData(movieIndex, moviePrice) {
   localStorage.setItem("selectedMovieIndex", movieIndex);
   localStorage.setItem("selectedMoviePrice", moviePrice);
 }
 
-// Update total and count
+
 function updateSelectedCount() {
   const selectedSeats = document.querySelectorAll(".row .seat.selected");
 
@@ -26,12 +28,20 @@ function updateSelectedCount() {
 
   count.innerText = selectedSeatsCount;
   total.innerText = selectedSeatsCount * ticketPrice;
+  payment.innerText = selectedSeatsCount * ticketPrice;
+
+  const selectedDivs = document.querySelectorAll('.selected');
+    const seatInfoValues = Array.from(selectedDivs).map(div => {
+    const seatInfo = div.getAttribute('data-seat-info');
+    return seatInfo ? seatInfo.trim() : null;
+  }).filter(value => value !== null);
+
+  quantity.value = seatInfoValues;
 
   setMovieData(movieSelect.selectedIndex, movieSelect.value);
 }
 
 
-// Get data from localstorage and populate UI
 function populateUI() {
   const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
 
@@ -51,14 +61,14 @@ function populateUI() {
   }
 }
 console.log(populateUI())
-// Movie select event
+
 movieSelect.addEventListener("change", (e) => {
   ticketPrice = +e.target.value;
   setMovieData(e.target.selectedIndex, e.target.value);
   updateSelectedCount();
 });
 
-// Seat click event
+
 container.addEventListener("click", (e) => {
   if (
     e.target.classList.contains("seat") &&
@@ -70,5 +80,15 @@ container.addEventListener("click", (e) => {
   }
 });
 
-// Initial count and total set
 updateSelectedCount();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const button = document.querySelector('#ticket');
+  const seats = document.querySelectorAll('.seat');
+  
+  button.addEventListener('click', function() {
+      seats.forEach(seat => {
+          seat.classList.remove('selected');
+      });
+  });
+});

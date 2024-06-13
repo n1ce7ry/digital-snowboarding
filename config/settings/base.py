@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'identification.apps.IdentificationConfig',
     'shop.apps.ShopConfig',
+    'booking.apps.BookingConfig',
 ]
 
 MIDDLEWARE = [

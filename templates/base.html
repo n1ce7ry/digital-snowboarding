@@ -31,7 +31,7 @@
                                 таблица</a>
                         </li>
                         <li class="menu__item pad">
-                            <a href="tickets-page.html" class="menu__link hvr-underline-from-left">Билеты</a>
+                            <a href="{% url 'booking' %}" class="menu__link hvr-underline-from-left">Билеты</a>
                         </li>
                     </ul>
                 </nav>
@@ -56,6 +56,8 @@
                 </div>
                 {% else %}
                 <div class="buttons__container">
+                    <a href="{% url 'cart_detail' %}" class="personal__backet"><img src="{% static 'images/backet.png' %}" alt="Корзина"
+                            class="backet"></a>
                     <a class="btn hvr-sweep-to-right" href="{% url 'login' %}">Войти</a>
                     <a class="btn hvr-sweep-to-right" href="{% url 'registration' %}">Регистрация</a>
                 </div>

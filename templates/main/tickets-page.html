@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билеты | Чемпионат по фиджитал играм</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container">
+                <a href="main-page.html"><img src="images/logotype.svg" alt="логотип" class="logotype"></a>
+                <nav class="nav">
+                    <ul class="menu">
+                        <li class="menu__item">
+                            <a href="teams-page.html" class="menu__link hvr-underline-from-left">Команды</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="shop-page.html" class="menu__link hvr-underline-from-left">Магазин</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="tournament-page.html" class="menu__link hvr-underline-from-left">Турнирная
+                                таблица</a>
+                        </li>
+                        <li class="menu__item pad">
+                            <a href="tickets-page.html" class="menu__link hvr-underline-from-left">Билеты</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="buttons-personal__container">
+                    <a href="basket-page.html" class="personal__backet"><img src="images/backet.png" alt="корзина"></a>
+                    <a href="favorite-page.html" class="personal__favorite"><img src="images/favorite.png" alt="сердечко"></a>
+                    <div class="dropdown">
+                        <div class="dropbtn">
+                            <p class="personal__login">anataekk</p>
+                            <a href="#" class="personal__user"> <img src="images/user-personal.png" alt="user"> </a>
+                            <img src="images/arrow-bottom.png" alt="стрелочка">
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="personal-page.html">Профиль</a>
+                            <a href="personpage-ticket.html">Мои билеты</a>
+                            <a href="edit-page.html">Редактировать профиль</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="ticket-page__info">
+                <h1 class="title">БИЛЕТЫ НА ЧЕМПИОНАТ ПО ФИДЖИТАЛ <br> СНОУБОРДИНГУ</h1>
+                <h2 class="ticket-page__title">1. Заполните данные</h2>
+                <div class="ticket-info__container">
+                    <div class="ticket-info__element">
+                        <label class="ticket-page__lable" for="fio">Введите ФИО:</label><br>
+                        <input class="ticket-page__input" type="text" name="fio" id="fio"
+                            placeholder="Иванов Иван Иванович" required> <br>
+                    </div>
+                    <div class="ticket-info__element">
+                        <label class="ticket-page__lable" for="email">Введите email:</label><br>
+                        <input class="ticket-page__input" type="email" name="email" id="email"
+                            placeholder="IvanIvanov@gmail.com" required> <br>
+                    </div>
+                    <div class="ticket-info__element">
+                        <label class="ticket-page__lable" for="tel">Введите номер телефона:</label><br>
+                        <input class="ticket-page__input" type="tel" name="tel" id="tel" placeholder="+7 999 999 999 99"
+                            required> <br>
+                    </div>
+                </div>
+
+                <div class="ticket-page__place">
+                    <h2 class="ticket-page__title">2. Выберите место</h2>
+                    <div class="ticket-place__container">
+                        <div class="movie-container">
+                            <label class="movie__lable">Выберете дату:</label>
+                            <select id="movie">
+                                <option value="1600">21 февраля (1600 ₽)</option>
+                                <option value="1600">22 февраля (1600 ₽)</option>
+                            </select>
+                        </div>
+
+                        <ul class="showcase">
+                            <li>
+                                <div class="seat"></div>
+                                <small>Доступные</small>
+                            </li>
+                            <li>
+                                <div class="seat selected"></div>
+                                <small>Выбранные</small>
+                            </li>
+                            <li>
+                                <div class="seat sold"></div>
+                                <small>Проданные</small>
+                            </li>
+                        </ul>
+                        <div class="container">
+                            <div class="screen">
+                                <p class="screen__name">СЦЕНА</p>
+                            </div>
+
+                            <div class="row">
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat sold"></div>
+                                <div class="seat sold"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+                            <div class="row">
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat sold"></div>
+                                <div class="seat sold"></div>
+                            </div>
+                            <div class="row">
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+                            <div class="row">
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat sold"></div>
+                                <div class="seat sold"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+                            <div class="row">
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat sold"></div>
+                                <div class="seat sold"></div>
+                                <div class="seat sold"></div>
+                                <div class="seat"></div>
+                            </div>
+                        </div>
+
+                        <p class="text">
+                            Вы выбрали <span id="count">0</span> место(-а). Цена билетов будет <span id="total">0</span> ₽
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ticket-page__payment">
+                    <h2 class="ticket-page__title">3. Оплатите билеты</h2>
+                    <div class="ticket-payment__container">
+                        <img src="images/payment-system.png" alt="платежные методы" class="payment-system__img">
+                        <div class="ticket-page__cart">
+                            <div class="cart__decor">
+                                <div class="cart__emblem"></div>
+                                <img src="images/nocontact.png" alt="" class="cart__nocontact">
+                            </div>
+                            <input type="text" name="cart_number" id="cart__number" class="cart__number" placeholder="1234  5678  9123  4567">
+                            <div class="cart__info">
+                                <p class="cart__fio">ИМЯ ФАМИЛИЯ</p>
+                                <input type="text" name="month" id="month" class="cart__data" placeholder="ММ / ГГ">
+                            </div>
+                        </div>
+                        <div class="ticket-cart__back">
+                            <div class="cart-back__decor"></div>
+                            <input type="text" name="cart_code" id="cart_code" class="cart__code" placeholder="CVP">
+                        </div>
+                        <div class="ticket-page__total">
+                            <p class="ticket-total__price">ИТОГО: <span class="total__price">1 600 руб</span></p>
+                            <button class="ticket-page__btn" type="submit">Оплатить</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="news">
+                    <h3 class="title__footer">Подпишитесь на нашу рассылку</h3>
+                    <p class="footer__text">
+                        Будьте в курсе всех новостей и будущих <br>
+                        мероприятий!
+                    </p>
+                    <div class="footer__buttons">
+                        <input class="footer__input" type="text" name="email" id="email" placeholder="Введите email">
+                        <button class="btn__footer" type="submit">Подписаться</button>
+                    </div>
+                </div>
+                <div class="footer__menu">
+                    <ul class="footer-menu__items">
+                        <li class="footer-menu__title">
+                            Трунир
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Расписание</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="tournament-page.html" class="footer-menu__link hvr-underline-from-left">Турнирная
+                                таблица</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="tickets-page.html" class="footer-menu__link hvr-underline-from-left">Билеты</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="teams-page.html" class="footer-menu__link hvr-underline-from-left">Команды</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-menu__items">
+                        <li class="footer-menu__title">
+                            Информация
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Место провидения</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Каталог</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Политика </a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Пресс-конференция</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-menu__items otstup">
+                        <li class="footer-menu__title">
+                            Контент
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Интервью</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Трансляции</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Новости</a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="" class="footer-menu__link hvr-underline-from-left">Прогнозы</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-logo__container">
+                <img class="footer__logo" src="images/logotype.svg" alt="логотип">
+                <div class="footer__social">
+                    <p class="footer-menu__title">Социальные сети</p>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="images/fvk.png" alt="вк">
+                    </a>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="images/ftelegram.png" alt="телеграм">
+                    </a>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="images/fyoutube.png" alt="ютуб">
+                    </a>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="images/finsta.png" alt="инстаграм">
+                    </a>
+                    <a href="" class="footer-social__icons">
+                        <img class="footer-social__icon" src="images/ftwitch.png" alt="твич">
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/seat.js"></script>
+</body>
+
+</html>

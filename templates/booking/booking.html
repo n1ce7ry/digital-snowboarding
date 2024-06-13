@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load custom %}
+
+{% block title %}
+Билеты | Чемпионат по фиджитал играм
+{% endblock %}
+
+{% block body %}
+
+<main class="main">
+    <section class="ticket-page__info">
+        <h1 class="title">БИЛЕТЫ НА ЧЕМПИОНАТ ПО ФИДЖИТАЛ <br> СНОУБОРДИНГУ</h1>
+        <h2 class="ticket-page__title">1. Заполните данные</h2>
+        <form id="ticket" method="POST" class="ticket-info__container">
+            {% csrf_token %}
+
+            {% for field in form.visible_fields %}
+            <div class="ticket-info__element">
+                <label class="ticket-page__lable" for="{{ field.auto_id }}">{{ field.label }}</label><br>
+                {{ field }}<br>
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+
+            {{ form.seat_data }}
+
+            
+        </form>
+
+        <div class="ticket-page__place">
+            <h2 class="ticket-page__title">2. Выберите место</h2>
+            <div class="ticket-place__container">
+                <div class="movie-container">
+                    <label class="movie__lable">Выберете дату:</label>
+                    <select id="movie">
+                        {% for game_day in game_days %}
+                            <option value="{{ game_day.location.price_per_seat|floatformat }}">{{ game_day.date|date }} ({{ game_day.location.price_per_seat|floatformat }} ₽)</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <ul class="showcase">
+                    <li>
+                        <div class="seat"></div>
+                        <small>Доступные</small>
+                    </li>
+                    <li>
+                        <div class="seat selected"></div>
+                        <small>Выбранные</small>
+                    </li>
+                    <li>
+                        <div class="seat sold"></div>
+                        <small>Проданные</small>
+                    </li>
+                </ul>
+                <div class="container">
+                    <div class="screen">
+                        <p class="screen__name">СЦЕНА</p>
+                    </div>
+
+                    {% for row in rows_range %}
+                        <div class="row">
+                            {% for column in columns_range %}
+                                {% with test=row|to_tuple:column %}
+                                    {% if test in booked_seats_coordinates %}
+                                        <div class="seat sold"></div>
+                                    {% else %}
+                                        <div class="seat" data-seat-info="({{ row }}, {{ column }})"></div>
+                                    {% endif %}
+                                {% endwith %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+
+                <p class="text">
+                    Вы выбрали <span id="count">0</span> место(-а). Стоимость билетов составит <span id="total">0</span>
+                    рублей
+                </p>
+            </div>
+        </div>
+
+        <div class="ticket-page__payment">
+            <h2 class="ticket-page__title">3. Оплатите билеты</h2>
+            <div class="ticket-payment__container">
+                <img src="{% static 'images/payment-system.png' %}" alt="платежные методы" class="payment-system__img">
+                <div class="ticket-page__cart">
+                    <div class="cart__decor">
+                        <div class="cart__emblem"></div>
+                        <img src="{% static 'images/nocontact.png' %}" alt="" class="cart__nocontact">
+                    </div>
+                    <input type="text" name="cart_number" id="cart__number" class="cart__number"
+                        placeholder="1234  5678  9123  4567">
+                    <div class="cart__info">
+                        <p class="cart__fio">ИМЯ ФАМИЛИЯ</p>
+                        <input type="text" name="month" id="month" class="cart__data" placeholder="ММ / ГГ">
+                    </div>
+                </div>
+                <div class="ticket-cart__back">
+                    <div class="cart-back__decor"></div>
+                    <input type="text" name="cart_code" id="cart_code" class="cart__code" placeholder="CVP">
+                </div>
+                <div class="ticket-page__total">
+                    <p class="ticket-total__price">ИТОГО: <span id="payment" class="total__price">0</span> рублей</p>
+                    <button id="ticket" class="ticket-page__btn" type="submit">Оплатить</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
+
+
+{% block js %}
+<script src="{% static 'js/seat.js' %}"></script>
+{% endblock %}

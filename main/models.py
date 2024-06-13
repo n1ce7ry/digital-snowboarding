@@ -89,7 +89,7 @@ class GameSchedule(models.Model):
         related_name='player_two',
     )
     date = models.DateTimeField(verbose_name='Дата и время проведения')
-    location = models.CharField(max_length=255, verbose_name='Место проведения')
+    location = models.ForeignKey('booking.Hall', related_name='schedule', on_delete=models.PROTECT, verbose_name='Место проведения')
 
     class Meta:
         verbose_name = 'Матч'

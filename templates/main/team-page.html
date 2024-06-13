@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block title %}
+{{ team.name }} | Чемпионат по фиджитал играм
 {% endblock %}
 
 {% block body %}
@@ -41,7 +42,7 @@
                 <div class="timetable__time">
                     <p class="time__data">{{ game.date|date:"d F (l)" }}</p>
                     <p class="time__time">{{ game.date|time }} MSK</p>
-                    <p class="time__place">{{ game.location }}</p>
+                    <p class="time__place">{{ game.location.name }}</p>
                 </div>
                 <img class="timetable__logo" src="{{ game.player_one.team.logo.url }}" alt="Логотип">
                 <p class="protiv">VS</p>
