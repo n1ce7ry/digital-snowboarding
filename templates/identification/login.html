@@ -15,7 +15,7 @@
             <form class="form" method="post">
                 <h2 class="login__title">ВХОД</h2>
                 {% if login_error %}
-                    <p>{{ login_error }}</p>
+                    <p class="error login-error">{{ login_error }}</p>
                 {% endif %}
                 {% csrf_token %}
                 <input class="form__input user" type="text" value="{{ data.username }}" name="username" id="login" placeholder="Введите логин"

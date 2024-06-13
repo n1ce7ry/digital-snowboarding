@@ -43,9 +43,12 @@ class Ticket(models.Model):
     first_name = models.CharField(max_length=255, verbose_name='Имя покупателя')
     email = models.EmailField(verbose_name='Электронная почта')
     phone = models.CharField(max_length=11, verbose_name='Номер телефона')
-    booked_seat = models.ForeignKey('booking.Seat', on_delete=models.PROTECT, verbose_name='Забронированное место')
+    game = models.ForeignKey('main.GameSchedule', on_delete=models.PROTECT, verbose_name='Игра')
+    booked_seat = models.ForeignKey(Seat, on_delete=models.CASCADE, verbose_name='Забронированное место')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
 
     class Meta:
+        ordering = ('-created_at',)
         verbose_name = 'Билет'
         verbose_name_plural = 'Билеты'
 

@@ -82,13 +82,16 @@ container.addEventListener("click", (e) => {
 
 updateSelectedCount();
 
+
 document.addEventListener('DOMContentLoaded', function() {
-  const button = document.querySelector('#ticket');
-  const seats = document.querySelectorAll('.seat');
-  
-  button.addEventListener('click', function() {
-      seats.forEach(seat => {
-          seat.classList.remove('selected');
-      });
+  var selectElement = document.getElementById('movie');
+  var gameIDField = document.getElementsByName('game_id')[0];
+
+  gameIDField.value = selectElement.value;
+
+  selectElement.addEventListener('change', function() {
+      var selectedValue = this.value;
+
+      gameIDField.value = selectedValue;
   });
 });

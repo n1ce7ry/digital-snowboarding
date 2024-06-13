@@ -7,6 +7,7 @@ urlpatterns = [
     path('team/<slug:team_slug>', views.team, name='team'),
     path('player/<slug:player_slug>', views.player, name='player'),
     path('teams/', views.teams, name='teams'),
+    path('tickets/', views.tickets, name='tickets'),
     path('tournament-schedule/', views.tournament_schedule, name='tournament_schedule'),
     path('favorite/', views.favorite_souvenirs, name='favorite_souvenirs'),
     path('add-favorite/<int:souvenir_id>', views.add_favorite_souvenirs, name='add_favorite_souvenirs'),

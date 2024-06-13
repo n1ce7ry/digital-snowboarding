@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Мои билеты | Чемпионат по фиджитал играм
+{% endblock %}
+
+{% block body %}
+        <main class="main">
+           <section class="personal-page">
+            <h1 class="title">ВАШИ БИЛЕТЫ</h1>
+            {% for ticket in tickets %}
+            <div class="personpage-ticket__container">
+                <div class="personal-ticket__code">
+                    <div class="flex__ticket">
+                        <p class="personal-ticket__row">РЯД: {{ ticket.booked_seat.row }}</p>
+                        <p class="personal-ticket__time">{{ ticket.game.date|date }}</p>
+                    </div>
+                    <div class="flex__ticket">
+                        <p class="personal-ticket__row">МЕСТО: {{ ticket.booked_seat.column }}</p>
+                        <p class="personal-ticket__time">{{ ticket.game.date|time }}</p>
+                    </div>
+                    <img src="{% static 'images/code.png' %}" alt="Штрих-код" class="ticket__code">
+                    <p class="code__text">digital snowdoarding</p>
+                </div>
+                <div class="personal__ticket">
+                    <p class="personal-ticket__place">{{ ticket.booked_seat.hall.name }}</p>
+                    <p class="personal-ticket__title">ЧЕМПИОНАТ ПО ФИДЖИТАЛ СНОУБОРДИНГУ </p>
+                    <div class="flex__personal__ticket">
+                        <div class="personal-ticket__info">
+                            <p class="personal-ticket__seat first">РЯД</p>
+                            <p class="personal-ticket__number first__number">{{ ticket.booked_seat.row }}</p>
+                        </div>
+                        <div class="personal-ticket__info">
+                            <p class="personal-ticket__seat">МЕСТО</p>
+                            <p class="personal-ticket__number seat__ticket">{{ ticket.booked_seat.column }}</p>
+                        </div>
+                        <div class="personal-ticket__info">
+                            <p class="personal-ticket__seat">ДАТА</p>
+                            <p class="personal-ticket__number data">{{ ticket.game.date|date:"d.m" }}</p>
+                        </div>
+                        <div class="personal-ticket__info">
+                            <p class="personal-ticket__seat">ВРЕМЯ</p>
+                            <p class="personal-ticket__number">{{ ticket.game.date|time }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+           </section>
+        </main>
+{% endblock %}

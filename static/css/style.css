@@ -1002,6 +1002,7 @@ footer {
 .personpage-ticket__container {
     display: flex;
     text-align: center;
+    margin-bottom: 40px;
 }
 .personal-ticket__code {
     background-color: #D9D9D9;
@@ -1116,6 +1117,10 @@ footer {
     margin-right: 25px;
     width: 35px;
     height: 35px;
+}
+.buttons__container {
+    display: flex;
+    align-items: center;
 }
 .personal__favorite{
     width: 35px;
@@ -1866,4 +1871,18 @@ small {
     font-weight: bold;
     font-size: 18px;
     color: #EB623B;
+}
+
+.errorlist > li, .error {
+    color: red;
+    font-weight: bold;
+}
+
+.login-error {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.seat-error {
+    text-decoration: underline;
 }

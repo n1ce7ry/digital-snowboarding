@@ -21,7 +21,7 @@ class CheckoutForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'class': 'backet-total__input'}),
             'address': forms.TextInput(attrs={'class': 'backet-total__input'}),
             'phone': forms.TextInput(attrs={'class': 'backet-total__input', 'minlength':'11', 'pattern': '\8[0-9]+'}),
-            'email': forms.EmailInput(attrs={'class': 'backet-total__input', 'pattern': '([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})'}),
+            'email': forms.EmailInput(attrs={'class': 'backet-total__input', 'pattern': '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,8}'}),
         }
         labels = {
             'first_name': 'Введите Ваше имя',

@@ -7,6 +7,7 @@ from django.db.models import Q
 
 
 from shop.models import Souvenir
+from booking.models import Ticket
 from shop.forms import CartAddSouvenirForm
 from .models import Team, Player, Gallery, GameSchedule, InterestingFactAboutPlayer
 
@@ -20,6 +21,11 @@ def home_page(request):
 
 def tournament_schedule(request):
     return render(request, 'main/tournament-page.html')
+
+
+def tickets(request):
+    tickets = Ticket.objects.filter(user=request.user)
+    return render(request, 'main/tickets.html', context={'tickets': tickets})
 
 
 def player(request, player_slug):

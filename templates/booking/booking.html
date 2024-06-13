@@ -13,7 +13,13 @@
 <main class="main">
     <section class="ticket-page__info">
         <h1 class="title">БИЛЕТЫ НА ЧЕМПИОНАТ ПО ФИДЖИТАЛ <br> СНОУБОРДИНГУ</h1>
-        <h2 class="ticket-page__title">1. Заполните данные</h2>
+        <h2 class="ticket-page__title">1. Заполните данные
+            {% if form.seat_data.errors %}
+                {% for error in form.seat_data.errors %}
+                    <span class="error seat-error">*{{ error }}*</span>
+                {% endfor %}
+            {% endif %}
+        </h2>
         <form id="ticket" method="POST" class="ticket-info__container">
             {% csrf_token %}
 
@@ -24,20 +30,20 @@
                 {{ field.errors }}
             </div>
             {% endfor %}
-
-            {{ form.seat_data }}
-
             
+            {{ form.seat_data }}
+            {{ form.game_id }}
+
         </form>
 
         <div class="ticket-page__place">
-            <h2 class="ticket-page__title">2. Выберите место</h2>
+            <h2 class="ticket-page__title">2. Выберите место </h2>
             <div class="ticket-place__container">
                 <div class="movie-container">
                     <label class="movie__lable">Выберете дату:</label>
                     <select id="movie">
                         {% for game_day in game_days %}
-                            <option value="{{ game_day.location.price_per_seat|floatformat }}">{{ game_day.date|date }} ({{ game_day.location.price_per_seat|floatformat }} ₽)</option>
+                            <option value="{{ game_day.id }}">{{ game_day.date|date }} ({{ game_day.location.price_per_seat|floatformat }} ₽)</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -104,7 +110,7 @@
                 </div>
                 <div class="ticket-page__total">
                     <p class="ticket-total__price">ИТОГО: <span id="payment" class="total__price">0</span> рублей</p>
-                    <button id="ticket" class="ticket-page__btn" type="submit">Оплатить</button>
+                    <button form="ticket" id="confirm_button" class="ticket-page__btn" type="submit">Оплатить</button>
                 </div>
             </div>
         </div>
