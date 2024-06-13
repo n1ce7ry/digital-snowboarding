@@ -36,9 +36,11 @@ class BookingForm(forms.Form):
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super(BookingForm, self).__init__(*args, **kwargs)
-        if user:
+        try:
             self.fields['email'].initial = user.email
             self.fields['phone'].initial = user.phone
+        except Exception:
+            pass
 
 
     def clean_email(self):

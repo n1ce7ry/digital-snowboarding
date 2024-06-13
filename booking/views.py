@@ -7,8 +7,7 @@ from main.models import GameSchedule
 def booking(request):
 
     hall = Hall.objects.first()
-    all_seats = Seat.objects.filter(hall=hall)
-    booked_seats = all_seats.filter(booked_by__isnull=False)
+    booked_seats = Seat.objects.filter(hall=hall)
     booked_seats_coordinates = [(seat.row, seat.column) for seat in booked_seats]
     game_days = GameSchedule.objects.filter(location=hall)
 

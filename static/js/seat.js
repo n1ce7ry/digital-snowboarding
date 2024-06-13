@@ -87,11 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
   var selectElement = document.getElementById('movie');
   var gameIDField = document.getElementsByName('game_id')[0];
 
-  gameIDField.value = selectElement.value;
+  function updateGameId() {
+      var selectedOption = selectElement.options[selectElement.selectedIndex];
+      var gameDayId = selectedOption.getAttribute('data-game-id');
+      gameIDField.value = gameDayId;
+  }
 
-  selectElement.addEventListener('change', function() {
-      var selectedValue = this.value;
+  updateGameId();
 
-      gameIDField.value = selectedValue;
-  });
+  selectElement.addEventListener('change', updateGameId);
 });

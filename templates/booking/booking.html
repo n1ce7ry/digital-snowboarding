@@ -43,7 +43,7 @@
                     <label class="movie__lable">Выберете дату:</label>
                     <select id="movie">
                         {% for game_day in game_days %}
-                            <option value="{{ game_day.id }}">{{ game_day.date|date }} ({{ game_day.location.price_per_seat|floatformat }} ₽)</option>
+                            <option data-game-id="{{ game_day.id }}" value="{{ game_day.location.price_per_seat|floatformat }}">{{ game_day.date|date }} ({{ game_day.location.price_per_seat|floatformat }} ₽)</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -70,8 +70,8 @@
                     {% for row in rows_range %}
                         <div class="row">
                             {% for column in columns_range %}
-                                {% with test=row|to_tuple:column %}
-                                    {% if test in booked_seats_coordinates %}
+                                {% with seat=row|to_tuple:column %}
+                                    {% if seat in booked_seats_coordinates %}
                                         <div class="seat sold"></div>
                                     {% else %}
                                         <div class="seat" data-seat-info="({{ row }}, {{ column }})"></div>
