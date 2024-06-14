@@ -1,4 +1,10 @@
+from django.core import mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 from django.shortcuts import render, redirect
+from django.conf import settings
+
+
 from .models import Hall, Seat, Ticket
 from .forms import BookingForm
 from main.models import GameSchedule
@@ -28,12 +34,17 @@ def booking(request):
                                            column=seat[1],
                                            hall=Hall.objects.first(),
                                            booked_by=request.user if request.user.is_authenticated else None)
-                Ticket.objects.create(user=request.user if request.user.is_authenticated else None,
+                ticket = Ticket.objects.create(user=request.user if request.user.is_authenticated else None,
                                                first_name=first_name,
                                                email=email,
                                                game=GameSchedule.objects.get(id=game_id),
                                                phone=phone,
                                                booked_seat=seat)
+
+                send_mail(subject=f'{first_name}, благодарим за заказ!',
+                          to=email,
+                          template='mail/send_ticket.html',
+                          context={'ticket': ticket})
             
             if request.user.is_authenticated:
                 return redirect('tickets')
@@ -56,6 +67,15 @@ def booking(request):
         'form': form,
     }
     return render(request, 'booking/booking.html', context=context)
+
+
+def send_mail(subject, to, template, context):
+    subject = subject
+    html_message = render_to_string(template, context=context)
+    from_email = settings.EMAIL_HOST_USER
+    to = to
+
+    mail.send_mail(subject, '', from_email, [to], html_message=html_message)
 
 
 def is_tuple_of_tuples(variable):
