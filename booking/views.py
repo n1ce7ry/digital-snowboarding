@@ -20,6 +20,9 @@ def booking(request):
             game_id = form.cleaned_data['game_id']
             seat_data_content = eval(form.cleaned_data['seat_data'])
 
+            if not is_tuple_of_tuples(seat_data_content):
+                seat_data_content = (seat_data_content,)
+
             for seat in seat_data_content:
                 seat = Seat.objects.create(row=seat[0],
                                            column=seat[1],
@@ -53,3 +56,9 @@ def booking(request):
         'form': form,
     }
     return render(request, 'booking/booking.html', context=context)
+
+
+def is_tuple_of_tuples(variable):
+    if isinstance(variable, tuple):
+        return all(isinstance(item, tuple) for item in variable)
+    return False
