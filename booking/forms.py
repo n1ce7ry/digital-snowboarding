@@ -65,7 +65,6 @@ class BookingForm(forms.Form):
 
     def clean_seat_data(self):
         seat_data = self.cleaned_data.get('seat_data')
-        print(seat_data)
         if not seat_data:
             raise ValidationError('Выберите места')
 

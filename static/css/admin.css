@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'NeueMachina-Bold';
+    /* заголовки */
+    src: url('../fonts/NeueMachina-Bold.woff2');
+}
+
+@font-face {
+    font-family: 'NeueMachina-Regular';
+    src: url('../fonts/NeueMachina-Regular.woff2');
+}
+
+@font-face {
+    font-family: 'NeueMachina-Light';
+    /* оснонвной текст */
+    src: url('../fonts/NeueMachina-Light.woff2');
+}
+
+@font-face {
+    font-family: 'NeueMachina-Medium';
+    /* подзаголовки */
+    src: url('../fonts/NeueMachina-Medium.woff2');
+}
+
+* {
+    font-family: 'NeueMachina-Light', sans-serif;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, .login, #container > .main {
+    background-color: #070707 !important;
+}
+
+#header {
+    background-color: #070707;
+    color: #EB623B;
+}
+
+h1 {
+    font-size: 36px;
+    font-family: 'NeueMachina-Bold', sans-serif;
+    color: #fff;
+}
+
+h2, h3 {
+    color: #fff !important;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    font-weight: 400;
+    background: #070707;
+    color: #fff;
+}
+
+.module {
+    border: 2px solid #EB623B;
+    background: #070707;
+    color: #fff;
+}
+
+.form-row  {
+    color: white;
+}
+
+#content-related {
+    background: #070707;
+    color: #fff;
+}
+
+form, #changelist .actions, td, th, tr:nth-child(even), tr:nth-child(even) .errorlist, tr:nth-child(odd) + .row-form-errors, tr:nth-child(odd) + .row-form-errors .errorlist {
+    background: #070707;
+    color: #fff;
+}
+
+td, th, .form-row {
+    border-bottom: 1px solid #EB623B !important;
+}
+
+.button.default, input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], input[type=tel], textarea, select, .vTextField, input[type=submit].default, .submit-row input.default, .button, input[type=submit], input[type=button], .submit-row input, a.button {
+    border: none;
+    background-color: #070707 !important;
+    color: #fff;
+    border: 1px solid #EB623B !important;
+}
+
+#changelist, label, li, .help, .submit-row, #changelist-filter, .actions, thead th, tfoot td, #changelist .paginator, div.breadcrumbs, #toolbar  {
+    background-color: #070707 !important;
+    color: #fff !important;
+}
+
+thead {
+    border: none !important;
+}
+
+#toolbar, .paginator {
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+    border-top: none !important;
+}
+
+
+a:link, a:visited {
+    color: #fff;
+}
+
+#content-related .module h2 {
+    color: #fff;
+    border-bottom: 1px solid #EB623B;
+}
+
+.submit-row {
+    border: 2px solid #EB623B !important;
+}
+
+#login-form > .submit-row, #login-form > .form-row{
+    border: none !important;
+}

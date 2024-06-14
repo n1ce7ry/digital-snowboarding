@@ -18,9 +18,9 @@ def booking(request):
             phone = form.cleaned_data['phone']
             email = form.cleaned_data['email']
             game_id = form.cleaned_data['game_id']
-            seat_data_content = form.cleaned_data['seat_data']
+            seat_data_content = eval(form.cleaned_data['seat_data'])
 
-            for seat in eval(seat_data_content):
+            for seat in seat_data_content:
                 seat = Seat.objects.create(row=seat[0],
                                            column=seat[1],
                                            hall=Hall.objects.first(),
