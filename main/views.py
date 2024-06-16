@@ -23,11 +23,6 @@ def tournament_schedule(request):
     return render(request, 'main/tournament-page.html')
 
 
-def tickets(request):
-    tickets = Ticket.objects.filter(user=request.user)
-    return render(request, 'main/tickets.html', context={'tickets': tickets})
-
-
 def player(request, player_slug):
     player = Player.objects.get(slug=player_slug)
     player_facts = InterestingFactAboutPlayer.objects.filter(player=player)
@@ -48,6 +43,12 @@ def team(request, team_slug):
 def teams(request):
     teams = Team.objects.all()
     return render(request, 'main/teams-page.html', context={'teams': teams})
+
+
+@login_required
+def tickets(request):
+    tickets = Ticket.objects.filter(user=request.user)
+    return render(request, 'main/tickets.html', context={'tickets': tickets})
 
 
 @login_required

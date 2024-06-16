@@ -1,6 +1,5 @@
 from django.core import mail
 from django.template.loader import render_to_string
-from django.utils.html import strip_tags
 from django.shortcuts import render, redirect
 from django.conf import settings
 

@@ -7,6 +7,7 @@
 
   - [Getting Started](#getting-started)
   - [Usage](#usage)
+  - [Deploy](#deploy)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -26,7 +27,7 @@ pip install -r requirements.txt
 ```bash
 vim env.example
 mv env.example env.sh
-. ./env.sh
+source env.sh
 ```
 4. Apply database migrations
 ```bash
@@ -45,6 +46,15 @@ python manage.py runserver
 ## Usage
 
 Once you start your local server, you can log in to it through your web browser.
+
+## Deploy
+
+### OS X Instructions
+
+1. Start new machine - `docker-machine create -d virtualbox dev;`
+1. Configure your shell to use the new machine environment - `eval $(docker-machine env dev)`
+1. Build images - `docker-compose build`
+1. Start services - `docker-compose up -d`
 
 ## Contributing
 

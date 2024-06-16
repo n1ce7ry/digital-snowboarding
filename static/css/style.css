@@ -774,7 +774,7 @@ footer {
     padding-left: 200px;
     position: relative;
     height: 1000px;
-    background-image: url(../images/newkids_back.png);
+    background-image: url(../images/snowboarding.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -1871,6 +1871,10 @@ small {
     font-weight: bold;
     font-size: 18px;
     color: #EB623B;
+}
+
+.errorlist {
+    padding-top: 15px;
 }
 
 .errorlist > li, .error {

@@ -1,5 +1,5 @@
 function addToCart(souvenir_id, csrfToken) {
-    fetch('http://' + window.location.host + '/shop/cart/add/' + souvenir_id + '/', {
+    fetch(window.location.protocol + '//' + window.location.host + '/shop/cart/add/' + souvenir_id + '/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
