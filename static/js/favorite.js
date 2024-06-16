@@ -1,5 +1,5 @@
 function addToFavorite(souvenir_id, csrfToken) {
-    fetch('http://' + window.location.host + '/add-favorite/' + souvenir_id, {
+    fetch(window.location.protocol + '//' + window.location.host + '/add-favorite/' + souvenir_id, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
