@@ -1,6 +1,8 @@
+import re
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth import authenticate
+from django.core.exceptions import ValidationError
 
 
 User = get_user_model()
@@ -42,6 +44,15 @@ class UpdateUserForm(forms.ModelForm):
             'email': 'Изменить email',
             'phone': 'Изменить телефон',
         }
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        pattern = r"([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
+
+        if not re.match(pattern, email):
+            raise ValidationError('Введите электронную почту в верном формате')
+
+        return email
 
 
 class UserResetPassword(forms.ModelForm):
