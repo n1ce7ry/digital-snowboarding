@@ -20,7 +20,7 @@
             <h2 class="title2">{{ team.name }}</h2>
             <img src="{{ team.team_photo.url }}" alt="{{ team.name }}" class="team__photo">
 
-            <div class="team-members__container">
+            <div class="team-members__container adaptiv-members__container">
                 {% for player in players %}
                 <p class="team__fio">
                     {{ player.full_name }}

@@ -531,14 +531,23 @@ footer {
 .team__card {
     margin-bottom: 150px;
     margin-top: 70px;
+    width: 30%;
+}
+
+.team__logo {
+    width: 60%;
+    height: 100%;
+    margin-left: 70px;
 }
 
 .team-card__logo {
     border: 1px solid #EB623B;
     border-radius: 20px;
-    padding: 70px 51px;
+    padding: 40px 21px;
     cursor: pointer;
     margin-bottom: 60px;
+    width: 100%;
+    height: 300px;
 }
 /* Grow Shadow */
 .hvr-grow-shadow {
@@ -2138,7 +2147,8 @@ small {
         margin-top: 30px;
     }
     .team__logo{
-        width: 150px;
+        width: 100%;
+        margin-left: 0;
     }
     .team-card__logo{
         padding: 30px 25px;
@@ -2146,6 +2156,7 @@ small {
     .team__card{
         margin-top: 50px;
         margin-bottom: 50px;
+        width: 100%;
     }
     .team__link{
         font-size: 20px;
@@ -2575,5 +2586,120 @@ small {
     }
     .timetable__title{
         font-size: 20px;
+    }
+    .timetable__name{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .time__data{
+        font-size: 20px;
+    }
+    .timetable{
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+    .time__time, .time__place{
+        font-size: 16px;
+    }
+    .timetable__decor2{
+        width: 100px;
+        top: 0px;
+    }
+    .timerible__elements{
+        display: block;
+        text-align: center;
+    }
+    .timetable__decor1{
+        width: 100px;
+    }
+    .timetable__logo, .timetable__logo2{
+        width: 100px;
+    }
+    .protiv{
+        font-size: 30px;
+    }
+    .team__dots{
+        width: 150px;
+    }
+    .team-info__title{
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    .team__facts{
+        display: none;
+    }
+    .team-info__text{
+        font-size: 18px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    .regular{
+        margin-left: 10px;
+    }
+    .regular img{
+        width: 30px;
+    }
+    .team-info__container{
+        margin-bottom: 30px;
+    }
+    .adaptiv-members__container{
+        flex-wrap: wrap;
+    }
+    .member__link img{
+        width: 150px;
+        margin-bottom: 20px;
+    }
+    .team-structure{
+        padding-bottom: 0;
+    }
+    .best-moment__text{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .moments__photo{
+        width: 230px;
+    }
+    .best-moment{
+        margin: 20px 0;
+    }
+    /* страница одного участника */
+    .member{
+        width: 500px;
+        top: 360px;
+    }
+    .member__info{
+        padding-left: 30px;
+        height: 700px;
+    }
+    .member__dannye{
+        margin-top: 40px;
+    }
+    .member-facts__container{
+        display: block;
+    }
+    .member-facts__photo{
+        width: 270px;
+        height: 280px;
+        margin-right: 0;
+        margin-left: 30px;
+    }
+    .member-text__container{
+        margin-top: 30px;
+        padding-left: 15px;
+    }
+    .adaptiv-member__facts{
+        width: 40px;
+    }
+    .member-facts__text{
+        font-size: 18px;
+    }
+    .member__decor2{
+        width: 100px;
+    }
+    .member__facts{
+        font-size: 18px;
+    }
+    .orange{
+        font-size: 25px;
     }
 }
