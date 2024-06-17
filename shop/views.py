@@ -1,12 +1,14 @@
 import json
+from django.http import JsonResponse
+from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
+from django.contrib.sessions.exceptions import SessionInterrupted
+
+
 from .models import Souvenir, SouvenirType, OrderItem
 from .cart import Cart
 from .forms import CartAddSouvenirForm, CheckoutForm
-from django.contrib.auth import get_user_model
-from django.contrib.sessions.exceptions import SessionInterrupted
-from django.http import JsonResponse
 
 
 User = get_user_model()
@@ -74,6 +76,10 @@ def cart_detail(request):
             cart.clear()
             return render(request, 'shop/created.html',
                           {'order': order})
+        
+        else:
+            return render(request, 'shop/cart-detail.html',
+                          {'form': form, 'cart': cart})
 
     form = CheckoutForm(instance=request.user if request.user.is_authenticated else None)
 

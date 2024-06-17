@@ -49,9 +49,9 @@
 
                 {% csrf_token %}
                 {% for field in form %}
-                <label class="backet-total__label" for="{{ field.auto_id }}">{{ field.label }}</label><br>
-                {{ field }}<br>
-                {{ field.errors }}
+                    <label class="backet-total__label" for="{{ field.auto_id }}">{{ field.label }}</label><br>
+                    {{ field.errors }}
+                    {{ field }}<br>
                 {% endfor %}
 
                 <button type="submit" class="backet-total__btn">Оформить заказ</button>
