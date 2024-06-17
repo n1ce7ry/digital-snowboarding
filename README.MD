@@ -1,15 +1,32 @@
-# Digital Snowboarding
+# 🏂 Digital Snowboarding 🏂
 ![Static Badge](https://img.shields.io/badge/python-3.12-green)
 ![Static Badge](https://img.shields.io/badge/django-5.0.6-blue)
 <img alt="GitHub" src="https://img.shields.io/github/license/n1ce7ry/digital-snowboarding">
 
 ## Table of Contents
 
+  - [About](#about)
+  - [Features](#features)
   - [Getting Started](#getting-started)
   - [Usage](#usage)
   - [Deploy](#deploy)
   - [Contributing](#contributing)
   - [License](#license)
+
+## About
+
+Digital Snowboarding is an innovative platform created to support and promote snowboarding as a sport and culture. The site offers comprehensive information coverage and commercial support for snowboarding events.
+
+## Features
+
+- Create profile and login.
+- Publication of the current list of participating teams.
+- Display current results and statistics.
+- Detailed profiles of each competitor.
+- A rich collection of event photos and videos.
+- Live streaming of the event in real time.
+- Easily purchase tickets for upcoming events.
+- Exclusive merchandise with competition symbols.
 
 ## Getting Started
 
