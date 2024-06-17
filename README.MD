@@ -13,7 +13,7 @@
 
 ## Getting Started
 
-Follow these steps to get started with Travelers' Hub Forum:
+Follow these steps to get started:
 
 1. Clone the project: 
 ```bash
