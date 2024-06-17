@@ -1943,11 +1943,13 @@ small {
 .open{
     display: flex !important;
 }
+
 .download, .download__text{
     display: none;
 }
+
 /* АДАПТАЦИЯ САЙТА */
-@media (max-width: 390px){
+@media (min-width: 390px) and (max-width: 500px){
     .header__main{
         height: 820px;
         width: 390px;
@@ -2234,7 +2236,7 @@ small {
     }
     .shop-page{
         padding-top: 30px;
-        padding-bottom: 30px;
+        padding-bottom: 70px;
     }
     .shop__container{
         gap: 30px;
@@ -2268,7 +2270,7 @@ small {
     /* страница билетов */
     .buttons-personal__container{
         margin-top: 20px;
-        margin-left: 30px;
+        margin-left: 50px;
     }
     .ticket-page__info{
         padding-top: 20px;
@@ -2441,7 +2443,7 @@ small {
         height: 300px;
     }
     .personal-page__content{
-        width: 310px;
+        width: 360px;
         padding: 0;
         display: block;
         height: 160px;
@@ -2458,6 +2460,7 @@ small {
     }
     .personal-user__info{
         font-size: 18px;
+        color: #fff;
         margin-bottom: 10px;
     }
     .personal-user__container{
@@ -2701,5 +2704,19 @@ small {
     }
     .orange{
         font-size: 25px;
+    }
+    .no-favorite{
+        font-size: 20px;
+        margin-top: 50px;
+    }
+    .no-page__btn{
+        font-size: 18px;
+        margin: 0 auto;
+        padding: 10px 20px;
+       margin-left: 60px;
+    }
+    .no-backet{
+        font-size: 20px;
+        margin: 50px;
     }
 }
