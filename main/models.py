@@ -97,3 +97,14 @@ class GameSchedule(models.Model):
 
     def __str__(self) -> str:
         return f'{self.player_one} VS {self.player_two} (Дата: {self.date}, Место: {self.location})'
+
+
+class MailingList(models.Model):
+    email = models.EmailField(verbose_name='Электронная почта')
+        
+    class Meta:
+        verbose_name = 'Почтовый ящик'
+        verbose_name_plural = 'Почтовые адреса для рассылки'
+
+    def __str__(self) -> str:
+        return self.email

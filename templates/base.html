@@ -81,10 +81,16 @@
                         Будьте в курсе всех новостей и будущих <br>
                         мероприятий!
                     </p>
-                    <div class="footer__buttons">
+                    <form id="mail" action="{% url 'mail' %}" method="POST" class="footer__buttons">
+                        {% csrf_token %}
                         <input class="footer__input" type="text" name="email" id="email" placeholder="Введите email">
                         <button class="btn__footer" type="submit">Подписаться</button>
-                    </div>
+                    </form>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="{{ message.tags }}-msg">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="footer__menu">
                     <ul class="footer-menu__items">

@@ -50,3 +50,8 @@ class GameScheduleAdmin(admin.ModelAdmin):
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(MailingList)
+class MailingAdmin(admin.ModelAdmin):
+    pass

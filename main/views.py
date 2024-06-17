@@ -1,18 +1,40 @@
+import re
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
 from django.db.models import Q
+from django.contrib import messages
 
 
 from shop.models import Souvenir
 from booking.models import Ticket
 from shop.forms import CartAddSouvenirForm
-from .models import Team, Player, Gallery, GameSchedule, InterestingFactAboutPlayer
+from .models import Team, Player, Gallery, GameSchedule, InterestingFactAboutPlayer, MailingList
 
 
 User = get_user_model()
+
+
+@require_POST
+def mail(request):
+    email = request.POST.get('email')
+
+    pattern = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+
+    if not re.fullmatch(pattern, email):
+        messages.error(request, 'Введите почту в формате XXXX@XXXX.XXX')
+        return redirect(
+            request.META.get('HTTP_REFERER', '/') + '#mail'
+        )
+
+    MailingList.objects.create(email=email)
+    messages.success(request, f'{email} был успешно добавлен!')
+
+    return redirect(
+        request.META.get('HTTP_REFERER', '/') + '#mail'
+    )
 
 
 def home_page(request):

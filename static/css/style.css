@@ -1878,6 +1878,17 @@ small {
     text-decoration: underline;
 }
 
+.error-msg {
+    color: red;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+.success-msg {
+    color: rgb(88, 201, 88);
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
 /* меню бургер */
 .burger{
     display: none;
