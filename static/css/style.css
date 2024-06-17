@@ -1943,11 +1943,9 @@ small {
 .open{
     display: flex !important;
 }
-
 .download, .download__text{
     display: none;
 }
-
 /* АДАПТАЦИЯ САЙТА */
 @media (min-width: 390px) and (max-width: 500px){
     .header__main{
@@ -2672,7 +2670,7 @@ small {
     }
     .member__info{
         padding-left: 30px;
-        height: 700px;
+        height: 880px;
     }
     .member__dannye{
         margin-top: 40px;
@@ -2718,5 +2716,17 @@ small {
     .no-backet{
         font-size: 20px;
         margin: 50px;
+    }
+    .member-info__container{
+        display: block;
+    }
+    .without__photo{
+        width: 60%;
+        margin-left: 30%;
+    }
+    .without-photo__decor{
+        right: 0px;
+        top: 26%;
+        width: 100%;
     }
 }
